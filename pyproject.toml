@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codejackrabbit-sdk"
+version = "0.2.0"
+description = "Official OpenAPI 3.1.0 specification for CodeJackRabbit (cjr) -- 5-stage autonomous code review, blast-radius graph, multi-file autofix, supply-chain SBOM, contract drift, SARIF 2.1.0 compliance ga...."
+license = { file = "LICENSE" }
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = ["httpx>=0.24,<1", "typing_extensions>=4.2.0"]
+keywords = ["openapi", "sdk", "httpx", "api-client", "code", "jack", "rabbit"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["codejackrabbit_sdk*"]
+
+[tool.setuptools.package-data]
+codejackrabbit_sdk = ["py.typed"]
+
+[tool.setuptools.data-files]
+"share/omniwrap/codejackrabbit_sdk" = ["api.md", "omniwrap-artifact.json"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 120
+
+[tool.ruff.lint]
+# PEP 604 unions stay spelled Optional[...]/Union[...] so every annotation remains
+# evaluable (typing.get_type_hints) on the oldest supported interpreter.
+ignore = ["UP007", "UP045"]
+
+[tool.mypy]
+strict = true

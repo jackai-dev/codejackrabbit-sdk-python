@@ -1,0 +1,1303 @@
+{
+  "$schema": "https://omniwrap.dev/schemas/artifact-manifest/v1.json",
+  "artifact": {
+    "capabilities": [
+      "api-key-bearer-basic-authentication",
+      "configurable-base-url",
+      "executable-sync-async-http-client",
+      "httpx-transport-injection",
+      "idempotency-key-enables-safe-retries",
+      "json-form-multipart-text-binary-content",
+      "minimum-python-3.9-runtime",
+      "presence-preserving-nullable-model-fields",
+      "raw-response-accessors-with-request-id",
+      "request-lifecycle-hooks",
+      "request-tracing-spans",
+      "resource-oriented-client-accessors",
+      "semantic-parameter-serialization",
+      "sse-and-ndjson-streaming",
+      "streaming-enforced-response-byte-limit",
+      "structured-http-errors",
+      "timeouts-and-idempotent-retries",
+      "typed-union-intersection-recursive-models",
+      "unknown-fields-preserved-on-decoded-models"
+    ],
+    "contract_capabilities": [
+      "api-key-bearer-basic-authentication",
+      "configurable-base-url",
+      "executable-sync-async-http-client",
+      "httpx-transport-injection",
+      "idempotency-key-enables-safe-retries",
+      "json-form-multipart-text-binary-content",
+      "minimum-python-3.9-runtime",
+      "presence-preserving-nullable-model-fields",
+      "raw-response-accessors-with-request-id",
+      "request-lifecycle-hooks",
+      "request-tracing-spans",
+      "resource-oriented-client-accessors",
+      "semantic-parameter-serialization",
+      "streaming-enforced-response-byte-limit",
+      "structured-http-errors",
+      "timeouts-and-idempotent-retries",
+      "typed-union-intersection-recursive-models",
+      "unknown-fields-preserved-on-decoded-models"
+    ],
+    "limitations": [
+      "base-url-query-and-fragment-not-supported",
+      "custom-pagination-not-generated",
+      "date-and-decimal-formats-mapped-to-string-and-floating-point",
+      "deprecation-documented-in-text-only",
+      "full-v3-005-v3-007-conformance-gates-not-yet-complete",
+      "mutual-tls-setup-not-generated",
+      "oauth-token-acquisition-not-generated",
+      "pagination-iterators-not-generated",
+      "runtime-schema-validation-not-generated",
+      "sdk-tests-not-generated",
+      "webhook-verification-not-generated",
+      "websocket-transport-not-generated"
+    ],
+    "maturity": "experimental",
+    "runtime_capabilities": [
+      "api-key-bearer-basic-authentication",
+      "configurable-base-url",
+      "executable-sync-async-http-client",
+      "httpx-transport-injection",
+      "idempotency-key-enables-safe-retries",
+      "json-form-multipart-text-binary-content",
+      "minimum-python-3.9-runtime",
+      "presence-preserving-nullable-model-fields",
+      "raw-response-accessors-with-request-id",
+      "request-lifecycle-hooks",
+      "request-tracing-spans",
+      "resource-oriented-client-accessors",
+      "semantic-parameter-serialization",
+      "sse-and-ndjson-streaming",
+      "streaming-enforced-response-byte-limit",
+      "structured-http-errors",
+      "timeouts-and-idempotent-retries",
+      "typed-union-intersection-recursive-models",
+      "unknown-fields-preserved-on-decoded-models"
+    ],
+    "type": "python-sdk",
+    "vocabulary_features": [
+      {
+        "details": {
+          "capabilities": [
+            "api-key-bearer-basic-authentication"
+          ],
+          "limitations": []
+        },
+        "id": "auth.api-key-bearer-basic",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "mutual-tls-setup-not-generated"
+          ]
+        },
+        "id": "auth.mutual-tls",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "oauth-token-acquisition-not-generated"
+          ]
+        },
+        "id": "auth.oauth",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "executable-sync-async-http-client"
+          ],
+          "limitations": []
+        },
+        "id": "client.async",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "executable-sync-async-http-client"
+          ],
+          "limitations": []
+        },
+        "id": "client.executable",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "resource-oriented-client-accessors"
+          ],
+          "limitations": []
+        },
+        "id": "client.resource-accessors",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "httpx-transport-injection"
+          ],
+          "limitations": []
+        },
+        "id": "client.transport-injection",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "full-v3-005-v3-007-conformance-gates-not-yet-complete"
+          ]
+        },
+        "id": "conformance.gates-complete",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "structured-http-errors"
+          ],
+          "limitations": []
+        },
+        "id": "errors.typed",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "typed-union-intersection-recursive-models"
+          ],
+          "limitations": []
+        },
+        "id": "models.composition",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "date-and-decimal-formats-mapped-to-string-and-floating-point"
+          ]
+        },
+        "id": "models.dates-decimals",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "deprecation-documented-in-text-only"
+          ]
+        },
+        "id": "models.deprecation",
+        "sense": "partial"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "unknown-fields-preserved-on-decoded-models"
+          ],
+          "limitations": []
+        },
+        "id": "models.extensible",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "presence-preserving-nullable-model-fields"
+          ],
+          "limitations": []
+        },
+        "id": "models.nullability",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "runtime-schema-validation-not-generated"
+          ]
+        },
+        "id": "models.runtime-validation",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "typed-union-intersection-recursive-models"
+          ],
+          "limitations": []
+        },
+        "id": "models.typed",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "request-lifecycle-hooks",
+            "request-tracing-spans"
+          ],
+          "limitations": []
+        },
+        "id": "observability.request-hooks",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "pagination-iterators-not-generated"
+          ]
+        },
+        "id": "pagination.auto-iteration",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "custom-pagination-not-generated"
+          ]
+        },
+        "id": "pagination.custom",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "idempotency-key-enables-safe-retries"
+          ],
+          "limitations": []
+        },
+        "id": "resilience.idempotency-keys",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "timeouts-and-idempotent-retries"
+          ],
+          "limitations": []
+        },
+        "id": "resilience.retries",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "timeouts-and-idempotent-retries"
+          ],
+          "limitations": []
+        },
+        "id": "resilience.timeouts",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "minimum-python-3.9-runtime"
+          ],
+          "limitations": []
+        },
+        "id": "runtime.minimum-version",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "streaming-enforced-response-byte-limit"
+          ],
+          "limitations": []
+        },
+        "id": "streaming.byte-limit",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "raw-response-accessors-with-request-id"
+          ],
+          "limitations": []
+        },
+        "id": "streaming.raw-response",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "sse-and-ndjson-streaming"
+          ],
+          "limitations": []
+        },
+        "id": "streaming.sse",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "websocket-transport-not-generated"
+          ]
+        },
+        "id": "streaming.websocket",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "sdk-tests-not-generated"
+          ]
+        },
+        "id": "testing.generated-tests",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [],
+          "limitations": [
+            "webhook-verification-not-generated"
+          ]
+        },
+        "id": "webhook.verification",
+        "sense": "absent"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "configurable-base-url"
+          ],
+          "limitations": [
+            "base-url-query-and-fragment-not-supported"
+          ]
+        },
+        "id": "wire.base-url",
+        "sense": "partial"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "semantic-parameter-serialization"
+          ],
+          "limitations": []
+        },
+        "id": "wire.parameter-serialization",
+        "sense": "present"
+      },
+      {
+        "details": {
+          "capabilities": [
+            "json-form-multipart-text-binary-content"
+          ],
+          "limitations": []
+        },
+        "id": "wire.request-content",
+        "sense": "present"
+      }
+    ],
+    "vocabulary_version": "1.18.0"
+  },
+  "files": {
+    "LICENSE": "fb11dfcf40507855f2fbe0fdcee036cfe549b3ef7e52ebeb09e0dd66d552a128",
+    "README.md": "40070337af9ffce9d2d4dfa3363b797898d3c0ab44117917a50a4fc62aecf9ce",
+    "api.md": "8b54b10e892945032896037fc43d7aaa248506c66ac0b24dc6f7f1dfbffc9586",
+    "codejackrabbit_sdk/__init__.py": "d04aa067ea93a18e4d4ee71721ef162f977fdf048b269a947c5a9292f19689e7",
+    "codejackrabbit_sdk/_client.py": "578698c1b45cd13af53df6330222e8b8ed2accc02f96083871d08078157152f9",
+    "codejackrabbit_sdk/_core.py": "3a7db5935caf41e6f5ba86c2c8e9ac9a2756e3b758080e9a462c32101fc9b161",
+    "codejackrabbit_sdk/_models.py": "f293cb928e84d104652c0eeadb3da81e360d4062e729c63062fbf7712aca0906",
+    "codejackrabbit_sdk/_raw.py": "70706b2dee92b7634feac2cd895f483ab104f92800973174eee607f44f2f8d84",
+    "codejackrabbit_sdk/py.typed": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "codejackrabbit_sdk/resources/__init__.py": "59e9941514f10c6db06d589b191168763646d39cc377dece6d37793ac1350486",
+    "codejackrabbit_sdk/resources/analysis.py": "8a4572e825114781320615564af5a7119cb5517046298794666661f3fffd0a60",
+    "codejackrabbit_sdk/resources/analytics.py": "f18c129aecf1597ec565e1c0807296ba8efcec093e3232080794e03c2a3374a6",
+    "codejackrabbit_sdk/resources/capabilities.py": "cd66e49847e0fa41f79219c58a1f45de5c88f493fedc30998580a07f70b85bca",
+    "codejackrabbit_sdk/resources/compliance.py": "50815a52a9f11495f1f254aa94e3b8d2d22129ab27e39df581064355120efc94",
+    "codejackrabbit_sdk/resources/health.py": "1e18c7b53ed6e3f34c86b5b7acb0a65a4abbbcb9b9c49940f2fac436de8e33a2",
+    "codejackrabbit_sdk/resources/reviews.py": "e309f2c74e6698e57e5a9067753ea94ca55bb1f893bdf357788b3c383120e893",
+    "codejackrabbit_sdk/resources/saas.py": "d4c6e45ee800d9a669998e22b3a0a946572db7e9ec089f33aa7e47d6b9a621ba",
+    "codejackrabbit_sdk/resources/sbom.py": "bbea0f978c787dc8a207131524ece4321df7a8117b9c05c322038557add1da83",
+    "codejackrabbit_sdk/resources/supply_chain.py": "33da62e0ac133485e88c144f0b4d7f55c9c6ac4c096197dd8305451d4e73a65e",
+    "codejackrabbit_sdk/resources/tasks.py": "c1aec28f22c0824a9afc58b8b7b9f4dcc6815aafa8f8dfcbee0c901d5b099947",
+    "codejackrabbit_sdk/resources/triage.py": "20c3b0c71d804844b8404552b74221be0c61e0e56b3e5eea62487c383e981ee6",
+    "codejackrabbit_sdk/resources/waitlist.py": "0811b0da3acd9f7db6c54f3fd44dd872cf5b704c1f5419826dcc53c9a0d22178",
+    "pyproject.toml": "7594c51052512ecae15cc46c6b1c9c6504d16137a46ff6b6ed38d9cdb46a941b"
+  },
+  "generator": {
+    "name": "omniwrap",
+    "version": "2.0.0"
+  },
+  "license": {
+    "id": null,
+    "kind": "proprietary",
+    "sha256": "fb11dfcf40507855f2fbe0fdcee036cfe549b3ef7e52ebeb09e0dd66d552a128"
+  },
+  "manifest_version": "1.3.0",
+  "security": {
+    "automatic_token_acquisition": false,
+    "credential_bindings": {
+      "cross_scheme_reuse": "only-declared-fallbacks",
+      "default_credential_scheme": null,
+      "schemes": {
+        "apiKeyHeader": {
+          "environment_variable": null,
+          "fallback": null,
+          "generic_options": [
+            "api_key"
+          ],
+          "option": "api_key_header"
+        },
+        "bearerAuth": {
+          "environment_variable": null,
+          "fallback": null,
+          "generic_options": [
+            "access_token"
+          ],
+          "option": "bearer"
+        }
+      }
+    },
+    "credentials_persisted": false,
+    "cross_origin_pagination": "denied",
+    "network_access": "only when caller invokes an SDK operation",
+    "transport_injection": true
+  },
+  "source": {
+    "diagnostics": [],
+    "diagnostics_omitted_count": 0,
+    "diagnostics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "ecosystem": "semantic",
+    "legacy_ir_sha256": null,
+    "location": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439",
+    "name": "CodeJackRabbit",
+    "normalization_diagnostic_count": 0,
+    "package_metadata": {
+      "contact_email": null,
+      "contact_name": null,
+      "contact_url": null,
+      "license_identifier": null,
+      "license_name": null,
+      "license_url": null,
+      "provenance": null,
+      "terms_of_service_url": null
+    },
+    "projection_loss_count": 0,
+    "provenance": [
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 10,
+        "pointer": "/servers/0/url",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 132,
+        "pointer": "/paths/~1health/get",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 143,
+        "pointer": "/paths/~1v1~1capabilities/get",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 173,
+        "pointer": "/paths/~1v1~1waitlist/get",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 289,
+        "pointer": "/paths/~1v1~1analytics~1roi/get",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 405,
+        "pointer": "/paths/~1v1~1triage/get",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 416,
+        "pointer": "/paths/~1v1~1tasks/get",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 446,
+        "pointer": "/paths/~1v1~1saas~1blueprint/get",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 154,
+        "pointer": "/paths/~1v1~1waitlist/post",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 184,
+        "pointer": "/paths/~1v1~1reviews/post",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 205,
+        "pointer": "/paths/~1v1~1reviews~1autofix/post",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 226,
+        "pointer": "/paths/~1v1~1reviews~1risk-radar/post",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 247,
+        "pointer": "/paths/~1v1~1supply-chain~1analyze/post",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 268,
+        "pointer": "/paths/~1v1~1sbom/post",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 300,
+        "pointer": "/paths/~1v1~1analysis~1contract-drift/post",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 321,
+        "pointer": "/paths/~1v1~1compliance~1sarif/post",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 342,
+        "pointer": "/paths/~1v1~1compliance~1gate/post",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 363,
+        "pointer": "/paths/~1v1~1analysis~1split-pr/post",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 384,
+        "pointer": "/paths/~1v1~1analysis~1perf-finops/post",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 425,
+        "pointer": "/paths/~1v1~1tasks/post",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 457,
+        "pointer": "/paths/~1v1~1saas~1surface-lease~1issue/post",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 478,
+        "pointer": "/paths/~1v1~1saas~1metering~1reserve/post",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 499,
+        "pointer": "/paths/~1v1~1saas~1metering~1finalize/post",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 136,
+        "pointer": "/paths/~1health/get/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 147,
+        "pointer": "/paths/~1v1~1capabilities/get/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 168,
+        "pointer": "/paths/~1v1~1waitlist/post/responses/201",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 177,
+        "pointer": "/paths/~1v1~1waitlist/get/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 198,
+        "pointer": "/paths/~1v1~1reviews/post/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 219,
+        "pointer": "/paths/~1v1~1reviews~1autofix/post/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 240,
+        "pointer": "/paths/~1v1~1reviews~1risk-radar/post/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 261,
+        "pointer": "/paths/~1v1~1supply-chain~1analyze/post/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 282,
+        "pointer": "/paths/~1v1~1sbom/post/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 293,
+        "pointer": "/paths/~1v1~1analytics~1roi/get/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 314,
+        "pointer": "/paths/~1v1~1analysis~1contract-drift/post/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 335,
+        "pointer": "/paths/~1v1~1compliance~1sarif/post/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 356,
+        "pointer": "/paths/~1v1~1compliance~1gate/post/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 377,
+        "pointer": "/paths/~1v1~1analysis~1split-pr/post/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 398,
+        "pointer": "/paths/~1v1~1analysis~1perf-finops/post/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 409,
+        "pointer": "/paths/~1v1~1triage/get/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 420,
+        "pointer": "/paths/~1v1~1tasks/get/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 439,
+        "pointer": "/paths/~1v1~1tasks/post/responses/201",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 450,
+        "pointer": "/paths/~1v1~1saas~1blueprint/get/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 471,
+        "pointer": "/paths/~1v1~1saas~1surface-lease~1issue/post/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 492,
+        "pointer": "/paths/~1v1~1saas~1metering~1reserve/post/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 513,
+        "pointer": "/paths/~1v1~1saas~1metering~1finalize/post/responses/200",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 19,
+        "confidence": 1.0,
+        "line": 44,
+        "pointer": "/components/schemas/FileChange/properties/diff",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 19,
+        "confidence": 1.0,
+        "line": 83,
+        "pointer": "/components/schemas/WaitlistRequest/properties/name",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 20,
+        "confidence": 1.0,
+        "line": 58,
+        "pointer": "/components/schemas/ReviewRequest/properties/files",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 20,
+        "confidence": 1.0,
+        "line": 79,
+        "pointer": "/components/schemas/WaitlistRequest/properties/email",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 21,
+        "confidence": 1.0,
+        "line": 112,
+        "pointer": "/components/schemas/ComplianceGateRequest/properties/policy",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 21,
+        "confidence": 1.0,
+        "line": 24,
+        "pointer": "/components/securitySchemes/bearerAuth",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 21,
+        "confidence": 1.0,
+        "line": 35,
+        "pointer": "/components/schemas/FileChange",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 21,
+        "confidence": 1.0,
+        "line": 92,
+        "pointer": "/components/schemas/WaitlistRequest/properties/source",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 22,
+        "confidence": 1.0,
+        "line": 105,
+        "pointer": "/components/schemas/ComplianceGateRequest/properties/findings/items",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 22,
+        "confidence": 1.0,
+        "line": 60,
+        "pointer": "/components/schemas/ReviewRequest/properties/files/items",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 22,
+        "confidence": 1.0,
+        "line": 64,
+        "pointer": "/components/schemas/ReviewRequest/properties/profile",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 22,
+        "confidence": 1.0,
+        "line": 89,
+        "pointer": "/components/schemas/WaitlistRequest/properties/useCase",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 23,
+        "confidence": 1.0,
+        "line": 100,
+        "pointer": "/components/schemas/ComplianceGateRequest/properties/reviewId",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 23,
+        "confidence": 1.0,
+        "line": 103,
+        "pointer": "/components/schemas/ComplianceGateRequest/properties/findings",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 23,
+        "confidence": 1.0,
+        "line": 28,
+        "pointer": "/components/securitySchemes/apiKeyHeader",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 23,
+        "confidence": 1.0,
+        "line": 41,
+        "pointer": "/components/schemas/FileChange/properties/filename",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 109,
+        "pointer": "/components/schemas/ComplianceGateRequest/properties/riskScore",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 157,
+        "pointer": "/paths/~1v1~1waitlist/post/requestBody",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 187,
+        "pointer": "/paths/~1v1~1reviews/post/requestBody",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 208,
+        "pointer": "/paths/~1v1~1reviews~1autofix/post/requestBody",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 229,
+        "pointer": "/paths/~1v1~1reviews~1risk-radar/post/requestBody",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 250,
+        "pointer": "/paths/~1v1~1supply-chain~1analyze/post/requestBody",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 271,
+        "pointer": "/paths/~1v1~1sbom/post/requestBody",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 303,
+        "pointer": "/paths/~1v1~1analysis~1contract-drift/post/requestBody",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 324,
+        "pointer": "/paths/~1v1~1compliance~1sarif/post/requestBody",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 345,
+        "pointer": "/paths/~1v1~1compliance~1gate/post/requestBody",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 366,
+        "pointer": "/paths/~1v1~1analysis~1split-pr/post/requestBody",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 387,
+        "pointer": "/paths/~1v1~1analysis~1perf-finops/post/requestBody",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 428,
+        "pointer": "/paths/~1v1~1tasks/post/requestBody",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 460,
+        "pointer": "/paths/~1v1~1saas~1surface-lease~1issue/post/requestBody",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 481,
+        "pointer": "/paths/~1v1~1saas~1metering~1reserve/post/requestBody",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 502,
+        "pointer": "/paths/~1v1~1saas~1metering~1finalize/post/requestBody",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 52,
+        "pointer": "/components/schemas/ReviewRequest",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 161,
+        "pointer": "/paths/~1v1~1waitlist/post/requestBody/content/application~1json/schema",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 191,
+        "pointer": "/paths/~1v1~1reviews/post/requestBody/content/application~1json/schema",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 212,
+        "pointer": "/paths/~1v1~1reviews~1autofix/post/requestBody/content/application~1json/schema",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 233,
+        "pointer": "/paths/~1v1~1reviews~1risk-radar/post/requestBody/content/application~1json/schema",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 254,
+        "pointer": "/paths/~1v1~1supply-chain~1analyze/post/requestBody/content/application~1json/schema",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 275,
+        "pointer": "/paths/~1v1~1sbom/post/requestBody/content/application~1json/schema",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 307,
+        "pointer": "/paths/~1v1~1analysis~1contract-drift/post/requestBody/content/application~1json/schema",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 328,
+        "pointer": "/paths/~1v1~1compliance~1sarif/post/requestBody/content/application~1json/schema",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 349,
+        "pointer": "/paths/~1v1~1compliance~1gate/post/requestBody/content/application~1json/schema",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 370,
+        "pointer": "/paths/~1v1~1analysis~1split-pr/post/requestBody/content/application~1json/schema",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 391,
+        "pointer": "/paths/~1v1~1analysis~1perf-finops/post/requestBody/content/application~1json/schema",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 432,
+        "pointer": "/paths/~1v1~1tasks/post/requestBody/content/application~1json/schema",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 464,
+        "pointer": "/paths/~1v1~1saas~1surface-lease~1issue/post/requestBody/content/application~1json/schema",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 485,
+        "pointer": "/paths/~1v1~1saas~1metering~1reserve/post/requestBody/content/application~1json/schema",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 506,
+        "pointer": "/paths/~1v1~1saas~1metering~1finalize/post/requestBody/content/application~1json/schema",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 26,
+        "confidence": 1.0,
+        "line": 115,
+        "pointer": "/components/schemas/ComplianceGateRequest/properties/policy/properties/profile",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 26,
+        "confidence": 1.0,
+        "line": 47,
+        "pointer": "/components/schemas/FileChange/properties/fileContent",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 26,
+        "confidence": 1.0,
+        "line": 73,
+        "pointer": "/components/schemas/WaitlistRequest",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 27,
+        "confidence": 1.0,
+        "line": 86,
+        "pointer": "/components/schemas/WaitlistRequest/properties/organization",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      },
+      {
+        "column": 32,
+        "confidence": 1.0,
+        "line": 97,
+        "pointer": "/components/schemas/ComplianceGateRequest",
+        "source": "local://ef2d34ee71ccee4cf3c5c09a1fd5b7d16499cbf18000b97015676ee2ddeb1439"
+      }
+    ],
+    "provenance_count": 98,
+    "provenance_omitted_count": 0,
+    "provenance_sha256": "7b7689b446f5edc95184b0108234e182eaf5971468ea45e43a86f1c74a70a207",
+    "semantic_fingerprint": "fe0f22558fb43411082df5e0762a23e9eaf90a9c713fe4ee9cfd27379222803d",
+    "semantic_ir_sha256": "fe0f22558fb43411082df5e0762a23e9eaf90a9c713fe4ee9cfd27379222803d",
+    "semantic_ir_version": "1.14.0",
+    "version": "0.2.0"
+  },
+  "surface": {
+    "operation_methods": {
+      "analyzeContractDrift": {
+        "flat": "analyze_contract_drift",
+        "raw": "with_raw_response.analyze_contract_drift",
+        "resource": "analysis.analyze_contract_drift"
+      },
+      "analyzePerfFinOps": {
+        "flat": "analyze_perf_fin_ops",
+        "raw": "with_raw_response.analyze_perf_fin_ops",
+        "resource": "analysis.analyze_perf_fin_ops"
+      },
+      "analyzeSupplyChain": {
+        "flat": "analyze_supply_chain",
+        "raw": "with_raw_response.analyze_supply_chain",
+        "resource": "supply_chain.analyze"
+      },
+      "buildAutofixBundle": {
+        "flat": "build_autofix_bundle",
+        "raw": "with_raw_response.build_autofix_bundle",
+        "resource": "reviews.build_autofix_bundle"
+      },
+      "computeRiskRadar": {
+        "flat": "compute_risk_radar",
+        "raw": "with_raw_response.compute_risk_radar",
+        "resource": "reviews.compute_risk_radar"
+      },
+      "createCodingTask": {
+        "flat": "create_coding_task",
+        "raw": "with_raw_response.create_coding_task",
+        "resource": "tasks.create_coding"
+      },
+      "createReview": {
+        "flat": "create_review",
+        "raw": "with_raw_response.create_review",
+        "resource": "reviews.create"
+      },
+      "evaluateComplianceGate": {
+        "flat": "evaluate_compliance_gate",
+        "raw": "with_raw_response.evaluate_compliance_gate",
+        "resource": "compliance.evaluate_gate"
+      },
+      "exportSarif": {
+        "flat": "export_sarif",
+        "raw": "with_raw_response.export_sarif",
+        "resource": "compliance.export_sarif"
+      },
+      "finalizeMeteringQuota": {
+        "flat": "finalize_metering_quota",
+        "raw": "with_raw_response.finalize_metering_quota",
+        "resource": "saas.finalize_metering_quota"
+      },
+      "generateSbom": {
+        "flat": "generate_sbom",
+        "raw": "with_raw_response.generate_sbom",
+        "resource": "sbom.generate"
+      },
+      "getAnalyticsRoi": {
+        "flat": "get_analytics_roi",
+        "raw": "with_raw_response.get_analytics_roi",
+        "resource": "analytics.get_roi"
+      },
+      "getCapabilities": {
+        "flat": "get_capabilities",
+        "raw": "with_raw_response.get_capabilities",
+        "resource": "capabilities.get"
+      },
+      "getHealth": {
+        "flat": "get_health",
+        "raw": "with_raw_response.get_health",
+        "resource": "health.get"
+      },
+      "getSaasBlueprint": {
+        "flat": "get_saas_blueprint",
+        "raw": "with_raw_response.get_saas_blueprint",
+        "resource": "saas.get_blueprint"
+      },
+      "getTriageQueue": {
+        "flat": "get_triage_queue",
+        "raw": "with_raw_response.get_triage_queue",
+        "resource": "triage.get_queue"
+      },
+      "issueSurfaceLease": {
+        "flat": "issue_surface_lease",
+        "raw": "with_raw_response.issue_surface_lease",
+        "resource": "saas.issue_surface_lease"
+      },
+      "listCodingTasks": {
+        "flat": "list_coding_tasks",
+        "raw": "with_raw_response.list_coding_tasks",
+        "resource": "tasks.list_coding"
+      },
+      "listWaitlist": {
+        "flat": "list_waitlist",
+        "raw": "with_raw_response.list_waitlist",
+        "resource": "waitlist.list"
+      },
+      "planStackedPrSplit": {
+        "flat": "plan_stacked_pr_split",
+        "raw": "with_raw_response.plan_stacked_pr_split",
+        "resource": "analysis.plan_stacked_pr_split"
+      },
+      "registerWaitlist": {
+        "flat": "register_waitlist",
+        "raw": "with_raw_response.register_waitlist",
+        "resource": "waitlist.register"
+      },
+      "reserveMeteringQuota": {
+        "flat": "reserve_metering_quota",
+        "raw": "with_raw_response.reserve_metering_quota",
+        "resource": "saas.reserve_metering_quota"
+      }
+    }
+  }
+}

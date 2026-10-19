@@ -1,0 +1,520 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "CodeJackRabbit",
+    "version": "0.2.0",
+    "description": "Official OpenAPI 3.1.0 specification for CodeJackRabbit (`cjr`) -- 5-stage autonomous code review, blast-radius graph, multi-file autofix, supply-chain SBOM, contract drift, SARIF 2.1.0 compliance gates, stacked PR splitting, FinOps guard, and @jackai/app-sdk multi-surface SaaS metering."
+  },
+  "servers": [
+    {
+      "url": "https://api.codejackrabbit.com",
+      "description": "CodeJackRabbit Cloud & Self-Hosted API"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "apiKeyHeader": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "apiKeyHeader": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-codejackrabbit-api-key"
+      }
+    },
+    "schemas": {
+      "FileChange": {
+        "type": "object",
+        "required": [
+          "filename"
+        ],
+        "properties": {
+          "filename": {
+            "type": "string"
+          },
+          "diff": {
+            "type": "string"
+          },
+          "fileContent": {
+            "type": "string"
+          }
+        }
+      },
+      "ReviewRequest": {
+        "type": "object",
+        "required": [
+          "files"
+        ],
+        "properties": {
+          "files": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FileChange"
+            }
+          },
+          "profile": {
+            "type": "string",
+            "enum": [
+              "chill",
+              "assertive"
+            ]
+          }
+        }
+      },
+      "WaitlistRequest": {
+        "type": "object",
+        "required": [
+          "email"
+        ],
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "name": {
+            "type": "string"
+          },
+          "organization": {
+            "type": "string"
+          },
+          "useCase": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          }
+        }
+      },
+      "ComplianceGateRequest": {
+        "type": "object",
+        "properties": {
+          "reviewId": {
+            "type": "string"
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "riskScore": {
+            "type": "number"
+          },
+          "policy": {
+            "type": "object",
+            "properties": {
+              "profile": {
+                "type": "string",
+                "enum": [
+                  "soc2",
+                  "pci-dss",
+                  "hipaa",
+                  "standard"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/health": {
+      "get": {
+        "operationId": "getHealth",
+        "summary": "Check server health and active storage backend",
+        "responses": {
+          "200": {
+            "description": "Server health status"
+          }
+        }
+      }
+    },
+    "/v1/capabilities": {
+      "get": {
+        "operationId": "getCapabilities",
+        "summary": "List all autonomous review, agentic, and compliance capabilities",
+        "responses": {
+          "200": {
+            "description": "Capabilities catalog"
+          }
+        }
+      }
+    },
+    "/v1/waitlist": {
+      "post": {
+        "operationId": "registerWaitlist",
+        "summary": "Register an email on the invitation-only waitlist",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WaitlistRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Waitlist entry created"
+          }
+        }
+      },
+      "get": {
+        "operationId": "listWaitlist",
+        "summary": "List invitation waitlist entries (JSON or CSV)",
+        "responses": {
+          "200": {
+            "description": "Waitlist entries"
+          }
+        }
+      }
+    },
+    "/v1/reviews": {
+      "post": {
+        "operationId": "createReview",
+        "summary": "Run the 5-stage deterministic + LLM code review pipeline",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Completed review result with findings, blast radius, and change stack"
+          }
+        }
+      }
+    },
+    "/v1/reviews/autofix": {
+      "post": {
+        "operationId": "buildAutofixBundle",
+        "summary": "Synthesize a conflict-free multi-file unified diff remediation bundle",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Remediation patch bundle"
+          }
+        }
+      }
+    },
+    "/v1/reviews/risk-radar": {
+      "post": {
+        "operationId": "computeRiskRadar",
+        "summary": "Compute the 6-axis PR Risk Radar score and grade",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "6-axis Risk Radar telemetry"
+          }
+        }
+      }
+    },
+    "/v1/supply-chain/analyze": {
+      "post": {
+        "operationId": "analyzeSupplyChain",
+        "summary": "Detect typosquatting, AI slopsquatting, and license compliance issues",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Supply-chain security audit"
+          }
+        }
+      }
+    },
+    "/v1/sbom": {
+      "post": {
+        "operationId": "generateSbom",
+        "summary": "Generate a CycloneDX 1.5 Software Bill of Materials (SBOM)",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "CycloneDX 1.5 SBOM JSON"
+          }
+        }
+      }
+    },
+    "/v1/analytics/roi": {
+      "get": {
+        "operationId": "getAnalyticsRoi",
+        "summary": "Compute engineering hours saved and prevented production outage ROI",
+        "responses": {
+          "200": {
+            "description": "ROI telemetry summary"
+          }
+        }
+      }
+    },
+    "/v1/analysis/contract-drift": {
+      "post": {
+        "operationId": "analyzeContractDrift",
+        "summary": "Detect breaking API symbol removals, signature narrowing, and destructive SQL migrations",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Contract drift report and SemVer recommendation"
+          }
+        }
+      }
+    },
+    "/v1/compliance/sarif": {
+      "post": {
+        "operationId": "exportSarif",
+        "summary": "Export review findings and fixes to OASIS SARIF 2.1.0 format",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "SARIF 2.1.0 JSON document"
+          }
+        }
+      }
+    },
+    "/v1/compliance/gate": {
+      "post": {
+        "operationId": "evaluateComplianceGate",
+        "summary": "Evaluate changes against SOC2, PCI-DSS, HIPAA, or Standard compliance gates",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ComplianceGateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Compliance gate verdict and SHA-256 attestation"
+          }
+        }
+      }
+    },
+    "/v1/analysis/split-pr": {
+      "post": {
+        "operationId": "planStackedPrSplit",
+        "summary": "Decompose a pull request into a topological stack of atomic sub-PRs",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ordered stacked PR plan and git commands"
+          }
+        }
+      }
+    },
+    "/v1/analysis/perf-finops": {
+      "post": {
+        "operationId": "analyzePerfFinOps",
+        "summary": "Detect N+1 queries in loops, blocking sync I/O, and unbounded LLM FinOps hazards",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Performance and FinOps audit report"
+          }
+        }
+      }
+    },
+    "/v1/triage": {
+      "get": {
+        "operationId": "getTriageQueue",
+        "summary": "List prioritized cross-repository pull requests (P0-P3)",
+        "responses": {
+          "200": {
+            "description": "Triaged PR queue"
+          }
+        }
+      }
+    },
+    "/v1/tasks": {
+      "get": {
+        "operationId": "listCodingTasks",
+        "summary": "List autonomous coding tasks",
+        "responses": {
+          "200": {
+            "description": "Task list"
+          }
+        }
+      },
+      "post": {
+        "operationId": "createCodingTask",
+        "summary": "Create a planned autonomous coding task",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created coding task"
+          }
+        }
+      }
+    },
+    "/v1/saas/blueprint": {
+      "get": {
+        "operationId": "getSaasBlueprint",
+        "summary": "Retrieve the autonomous SaaS multi-surface adapter blueprint and pricing matrix",
+        "responses": {
+          "200": {
+            "description": "Autonomous SaaS blueprint"
+          }
+        }
+      }
+    },
+    "/v1/saas/surface-lease/issue": {
+      "post": {
+        "operationId": "issueSurfaceLease",
+        "summary": "Issue an anti-sharing cryptographic lease for a CLI, IDE, MCP, or SCM surface",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Issued surface lease token"
+          }
+        }
+      }
+    },
+    "/v1/saas/metering/reserve": {
+      "post": {
+        "operationId": "reserveMeteringQuota",
+        "summary": "Phase 1 of 3-phase idempotent metering: reserve seat and token quota before execution",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Metering reservation record"
+          }
+        }
+      }
+    },
+    "/v1/saas/metering/finalize": {
+      "post": {
+        "operationId": "finalizeMeteringQuota",
+        "summary": "Phase 2 of 3-phase idempotent metering: commit actual review and LLM usage",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Finalized metering settlement"
+          }
+        }
+      }
+    }
+  }
+}
