@@ -1,0 +1,216 @@
+{
+  "contract_fingerprint": "b06781a26c4469e8f12830a04d455957bf620d42b9e1df155e93ee00f293d1c9",
+  "sdk_targets_version": "1.1.0",
+  "targets": [
+    {
+      "identity": {
+        "coordinates": "codejackrabbit-sdk==0.3.4",
+        "ecosystem": "PyPI",
+        "entry": "",
+        "import": "import codejackrabbit_sdk"
+      },
+      "operations": {
+        "analyzeContractDrift": {
+          "member": "analysis.analyze_contract_drift",
+          "method": "POST",
+          "path": "/v1/analysis/contract-drift",
+          "resource": "analysis",
+          "signature": "client.analysis.analyze_contract_drift(body: ReviewRequest, *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "analyzePerfFinOps": {
+          "member": "analysis.analyze_perf_fin_ops",
+          "method": "POST",
+          "path": "/v1/analysis/perf-finops",
+          "resource": "analysis",
+          "signature": "client.analysis.analyze_perf_fin_ops(body: ReviewRequest, *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "analyzeSupplyChain": {
+          "member": "supply_chain.analyze",
+          "method": "POST",
+          "path": "/v1/supply-chain/analyze",
+          "resource": "supply_chain",
+          "signature": "client.supply_chain.analyze(body: ReviewRequest, *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "buildAutofixBundle": {
+          "member": "reviews.build_autofix_bundle",
+          "method": "POST",
+          "path": "/v1/reviews/autofix",
+          "resource": "reviews",
+          "signature": "client.reviews.build_autofix_bundle(body: ReviewRequest, *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "collectDeveloperAudit": {
+          "member": "developer_intelligence.collect_audit",
+          "method": "POST",
+          "path": "/cli/managed/developer-audit",
+          "resource": "developer_intelligence",
+          "signature": "client.developer_intelligence.collect_audit(body: DeveloperAuditRequest, *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> dict[str, Any]"
+        },
+        "computeRiskRadar": {
+          "member": "reviews.compute_risk_radar",
+          "method": "POST",
+          "path": "/v1/reviews/risk-radar",
+          "resource": "reviews",
+          "signature": "client.reviews.compute_risk_radar(body: ReviewRequest, *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "createCodingTask": {
+          "member": "tasks.create_coding",
+          "method": "POST",
+          "path": "/v1/tasks",
+          "resource": "tasks",
+          "signature": "client.tasks.create_coding(body: dict[str, Any], *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "createReview": {
+          "member": "reviews.create",
+          "method": "POST",
+          "path": "/v1/reviews",
+          "resource": "reviews",
+          "signature": "client.reviews.create(body: ReviewRequest, *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "currentDeveloperIdentity": {
+          "member": "developer_intelligence.current_identity",
+          "method": "POST",
+          "path": "/cli/managed/developer-identity",
+          "resource": "developer_intelligence",
+          "signature": "client.developer_intelligence.current_identity(body: ManagedDeveloperIdentityRequest, *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> ManagedDeveloperIdentity"
+        },
+        "declareDeveloperProjectContext": {
+          "member": "developer_intelligence.declare_project_context",
+          "method": "POST",
+          "path": "/cli/managed/audit-context",
+          "resource": "developer_intelligence",
+          "signature": "client.developer_intelligence.declare_project_context(body: AuditContextRequest, *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> dict[str, Any]"
+        },
+        "evaluateComplianceGate": {
+          "member": "compliance.evaluate_gate",
+          "method": "POST",
+          "path": "/v1/compliance/gate",
+          "resource": "compliance",
+          "signature": "client.compliance.evaluate_gate(body: ComplianceGateRequest, *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "exportSarif": {
+          "member": "compliance.export_sarif",
+          "method": "POST",
+          "path": "/v1/compliance/sarif",
+          "resource": "compliance",
+          "signature": "client.compliance.export_sarif(body: dict[str, Any], *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "finalizeMeteringQuota": {
+          "member": "saas.finalize_metering_quota",
+          "method": "POST",
+          "path": "/v1/saas/metering/finalize",
+          "resource": "saas",
+          "signature": "client.saas.finalize_metering_quota(body: dict[str, Any], *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "generateSbom": {
+          "member": "sbom.generate",
+          "method": "POST",
+          "path": "/v1/sbom",
+          "resource": "sbom",
+          "signature": "client.sbom.generate(body: ReviewRequest, *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "getAnalyticsRoi": {
+          "member": "analytics.get_roi",
+          "method": "GET",
+          "path": "/v1/analytics/roi",
+          "resource": "analytics",
+          "signature": "client.analytics.get_roi(*, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "getCapabilities": {
+          "member": "capabilities.get",
+          "method": "GET",
+          "path": "/v1/capabilities",
+          "resource": "capabilities",
+          "signature": "client.capabilities.get(*, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "getHealth": {
+          "member": "health.get",
+          "method": "GET",
+          "path": "/health",
+          "resource": "health",
+          "signature": "client.health.get(*, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "getSaasBlueprint": {
+          "member": "saas.get_blueprint",
+          "method": "GET",
+          "path": "/v1/saas/blueprint",
+          "resource": "saas",
+          "signature": "client.saas.get_blueprint(*, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "getTriageQueue": {
+          "member": "triage.get_queue",
+          "method": "GET",
+          "path": "/v1/triage",
+          "resource": "triage",
+          "signature": "client.triage.get_queue(*, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "issueSurfaceLease": {
+          "member": "saas.issue_surface_lease",
+          "method": "POST",
+          "path": "/v1/saas/surface-lease/issue",
+          "resource": "saas",
+          "signature": "client.saas.issue_surface_lease(body: dict[str, Any], *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "listCodingTasks": {
+          "member": "tasks.list_coding",
+          "method": "GET",
+          "path": "/v1/tasks",
+          "resource": "tasks",
+          "signature": "client.tasks.list_coding(*, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "listWaitlist": {
+          "member": "waitlist.list",
+          "method": "GET",
+          "path": "/v1/waitlist",
+          "resource": "waitlist",
+          "signature": "client.waitlist.list(*, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "managedAuditSnapshots": {
+          "member": "developer_intelligence.managed_audit_snapshots",
+          "method": "POST",
+          "path": "/cli/managed/audit-snapshots",
+          "resource": "developer_intelligence",
+          "signature": "client.developer_intelligence.managed_audit_snapshots(body: AuditSnapshotsRequest, *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> dict[str, Any]"
+        },
+        "planStackedPrSplit": {
+          "member": "analysis.plan_stacked_pr_split",
+          "method": "POST",
+          "path": "/v1/analysis/split-pr",
+          "resource": "analysis",
+          "signature": "client.analysis.plan_stacked_pr_split(body: ReviewRequest, *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "providerCostEvidence": {
+          "member": "developer_intelligence.provider_cost_evidence",
+          "method": "POST",
+          "path": "/cli/managed/finops",
+          "resource": "developer_intelligence",
+          "signature": "client.developer_intelligence.provider_cost_evidence(body: FinOpsRequest, *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> dict[str, Any]"
+        },
+        "registerWaitlist": {
+          "member": "waitlist.register",
+          "method": "POST",
+          "path": "/v1/waitlist",
+          "resource": "waitlist",
+          "signature": "client.waitlist.register(body: WaitlistRequest, *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "reserveMeteringQuota": {
+          "member": "saas.reserve_metering_quota",
+          "method": "POST",
+          "path": "/v1/saas/metering/reserve",
+          "resource": "saas",
+          "signature": "client.saas.reserve_metering_quota(body: dict[str, Any], *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> None"
+        },
+        "submitDeveloperEvidence": {
+          "member": "developer_intelligence.submit_evidence",
+          "method": "POST",
+          "path": "/cli/managed/developer-evidence",
+          "resource": "developer_intelligence",
+          "signature": "client.developer_intelligence.submit_evidence(body: DeveloperEvidenceRequest, *, content_type: Optional[str] = None, headers: Optional[Mapping[str, str]] = None, query: Optional[Mapping[str, Any]] = None, cookies: Optional[Mapping[str, str]] = None, timeout: Optional[float] = None, max_retries: Optional[int] = None, max_response_bytes: Optional[int] = None, idempotency_key: Optional[str] = None) -> dict[str, Any]"
+        }
+      },
+      "package_directory": "../codejackrabbit-sdk",
+      "package_manifest": "pyproject.toml",
+      "reference": "api.md",
+      "renderer": "python"
+    }
+  ]
+}

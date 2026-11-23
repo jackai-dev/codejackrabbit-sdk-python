@@ -1,0 +1,1480 @@
+{
+  "$schema": "https://omniwrap.dev/schemas/artifact-manifest/v1.json",
+  "artifact": {
+    "capabilities": [
+      "attested-native-sdk-members",
+      "bounded-cited-knowledge-search",
+      "deterministic-agent-outcome-corpus",
+      "mcp-resources",
+      "non-executing-request-plans",
+      "read-only-symbol-knowledge",
+      "semantic-operation-knowledge"
+    ],
+    "limitations": [
+      "Native SDK members describe only the SDK packages generated together with this server; a package identity does not establish registry publication.",
+      "Search ranking is deterministic exact-reference-then-weighted-lexical retrieval rather than semantic embedding retrieval.",
+      "The embedded task corpus enables local retrieval scoring but does not claim live-model task completion.",
+      "This knowledge artifact intentionally contains no execution tool."
+    ],
+    "maturity": "verified",
+    "type": "mcp-knowledge-server"
+  },
+  "files": {
+    "README.md": "0f717987a395a291e508e81498672124a5f7bcd162a0c9c02bba75cfc5ca6286",
+    "agent-tasks.json": "d8d720205db4199a081f0e81229dc5763ec3ce0de484898aa8f70d027b46cfcc",
+    "knowledge-index.json": "ed59dfeee95c7e4733dbdb6535c954c10602ad0137dff7ed8a4c1bc65b3cdf4a",
+    "library-ir.json": "3030b89beec4ec11986ee56145781310d362fdf965b1ce7aa60a9508dce6b990",
+    "mcp.json": "5b0c9b4b60c81ab2c77fdd8ba23cba07422bab20a41a6b6076f3956d3f540dfb",
+    "sdk-targets.json": "2c4031ce1cdaf5b5f9088ee02b500ced4b113e6200996925ddf8c3a19bec625f",
+    "semantic-api.json": "b256061132c58e446cc6fef99118fc68c7c51ba569556a92ade1168bce2d0df3",
+    "server.py": "57dd7257c1bd0a82fbf664c85cbe551c6233d377a14cbe49c95e2d715ce66c3c"
+  },
+  "generator": {
+    "name": "omniwrap",
+    "version": "2.0.0"
+  },
+  "manifest_version": "1.3.0",
+  "security": {
+    "execution_enabled": false,
+    "network_access": false,
+    "read_only": true,
+    "requires_secrets": false,
+    "target_code_execution": false
+  },
+  "source": {
+    "diagnostics": [],
+    "diagnostics_omitted_count": 0,
+    "diagnostics_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "ecosystem": "semantic",
+    "legacy_ir_sha256": null,
+    "location": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3",
+    "name": "CodeJackRabbit",
+    "normalization_diagnostic_count": 0,
+    "package_metadata": {
+      "contact_email": null,
+      "contact_name": null,
+      "contact_url": null,
+      "license_identifier": null,
+      "license_name": "Apache-2.0",
+      "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "provenance": {
+        "column": 11,
+        "confidence": 1.0,
+        "line": 3,
+        "pointer": "/info",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      "terms_of_service_url": null
+    },
+    "projection_loss_count": 0,
+    "provenance": [
+      {
+        "column": 11,
+        "confidence": 1.0,
+        "line": 139,
+        "pointer": "/components/schemas/FinOpsRequest/oneOf/0",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 11,
+        "confidence": 1.0,
+        "line": 155,
+        "pointer": "/components/schemas/FinOpsRequest/oneOf/1",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 11,
+        "confidence": 1.0,
+        "line": 173,
+        "pointer": "/components/schemas/FinOpsRequest/oneOf/2",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 11,
+        "confidence": 1.0,
+        "line": 195,
+        "pointer": "/components/schemas/AuditSnapshotsRequest/oneOf/0",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 11,
+        "confidence": 1.0,
+        "line": 212,
+        "pointer": "/components/schemas/AuditSnapshotsRequest/oneOf/1",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 11,
+        "confidence": 1.0,
+        "line": 3,
+        "pointer": "/info",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 14,
+        "pointer": "/servers/0/url",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 652,
+        "pointer": "/paths/~1health/get",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 663,
+        "pointer": "/paths/~1v1~1capabilities/get",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 693,
+        "pointer": "/paths/~1v1~1waitlist/get",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 809,
+        "pointer": "/paths/~1v1~1analytics~1roi/get",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 925,
+        "pointer": "/paths/~1v1~1triage/get",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 936,
+        "pointer": "/paths/~1v1~1tasks/get",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 14,
+        "confidence": 1.0,
+        "line": 966,
+        "pointer": "/paths/~1v1~1saas~1blueprint/get",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 1019,
+        "pointer": "/paths/~1v1~1saas~1metering~1finalize/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 407,
+        "pointer": "/paths/~1cli~1managed~1developer-audit/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 448,
+        "pointer": "/paths/~1cli~1managed~1developer-identity/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 488,
+        "pointer": "/paths/~1cli~1managed~1developer-evidence/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 529,
+        "pointer": "/paths/~1cli~1managed~1finops/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 570,
+        "pointer": "/paths/~1cli~1managed~1audit-snapshots/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 611,
+        "pointer": "/paths/~1cli~1managed~1audit-context/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 674,
+        "pointer": "/paths/~1v1~1waitlist/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 704,
+        "pointer": "/paths/~1v1~1reviews/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 725,
+        "pointer": "/paths/~1v1~1reviews~1autofix/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 746,
+        "pointer": "/paths/~1v1~1reviews~1risk-radar/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 767,
+        "pointer": "/paths/~1v1~1supply-chain~1analyze/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 788,
+        "pointer": "/paths/~1v1~1sbom/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 820,
+        "pointer": "/paths/~1v1~1analysis~1contract-drift/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 841,
+        "pointer": "/paths/~1v1~1compliance~1sarif/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 862,
+        "pointer": "/paths/~1v1~1compliance~1gate/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 883,
+        "pointer": "/paths/~1v1~1analysis~1split-pr/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 904,
+        "pointer": "/paths/~1v1~1analysis~1perf-finops/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 945,
+        "pointer": "/paths/~1v1~1tasks/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 977,
+        "pointer": "/paths/~1v1~1saas~1surface-lease~1issue/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 15,
+        "confidence": 1.0,
+        "line": 998,
+        "pointer": "/paths/~1v1~1saas~1metering~1reserve/post",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 17,
+        "confidence": 1.0,
+        "line": 101,
+        "pointer": "/components/schemas/DeveloperAuditRequest/properties/to",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 1012,
+        "pointer": "/paths/~1v1~1saas~1metering~1reserve/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 1033,
+        "pointer": "/paths/~1v1~1saas~1metering~1finalize/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 430,
+        "pointer": "/paths/~1cli~1managed~1developer-audit/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 471,
+        "pointer": "/paths/~1cli~1managed~1developer-identity/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 511,
+        "pointer": "/paths/~1cli~1managed~1developer-evidence/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 552,
+        "pointer": "/paths/~1cli~1managed~1finops/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 593,
+        "pointer": "/paths/~1cli~1managed~1audit-snapshots/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 634,
+        "pointer": "/paths/~1cli~1managed~1audit-context/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 656,
+        "pointer": "/paths/~1health/get/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 667,
+        "pointer": "/paths/~1v1~1capabilities/get/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 688,
+        "pointer": "/paths/~1v1~1waitlist/post/responses/201",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 697,
+        "pointer": "/paths/~1v1~1waitlist/get/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 718,
+        "pointer": "/paths/~1v1~1reviews/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 739,
+        "pointer": "/paths/~1v1~1reviews~1autofix/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 760,
+        "pointer": "/paths/~1v1~1reviews~1risk-radar/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 781,
+        "pointer": "/paths/~1v1~1supply-chain~1analyze/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 802,
+        "pointer": "/paths/~1v1~1sbom/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 813,
+        "pointer": "/paths/~1v1~1analytics~1roi/get/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 834,
+        "pointer": "/paths/~1v1~1analysis~1contract-drift/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 855,
+        "pointer": "/paths/~1v1~1compliance~1sarif/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 876,
+        "pointer": "/paths/~1v1~1compliance~1gate/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 897,
+        "pointer": "/paths/~1v1~1analysis~1split-pr/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 918,
+        "pointer": "/paths/~1v1~1analysis~1perf-finops/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 929,
+        "pointer": "/paths/~1v1~1triage/get/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 940,
+        "pointer": "/paths/~1v1~1tasks/get/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 959,
+        "pointer": "/paths/~1v1~1tasks/post/responses/201",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 970,
+        "pointer": "/paths/~1v1~1saas~1blueprint/get/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 18,
+        "confidence": 1.0,
+        "line": 991,
+        "pointer": "/paths/~1v1~1saas~1surface-lease~1issue/post/responses/200",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 19,
+        "confidence": 1.0,
+        "line": 319,
+        "pointer": "/components/schemas/FileChange/properties/diff",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 19,
+        "confidence": 1.0,
+        "line": 358,
+        "pointer": "/components/schemas/WaitlistRequest/properties/name",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 19,
+        "confidence": 1.0,
+        "line": 97,
+        "pointer": "/components/schemas/DeveloperAuditRequest/properties/from",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 20,
+        "confidence": 1.0,
+        "line": 130,
+        "pointer": "/components/schemas/DeveloperEvidenceRequest/properties/input",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 20,
+        "confidence": 1.0,
+        "line": 333,
+        "pointer": "/components/schemas/ReviewRequest/properties/files",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 20,
+        "confidence": 1.0,
+        "line": 354,
+        "pointer": "/components/schemas/WaitlistRequest/properties/email",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 21,
+        "confidence": 1.0,
+        "line": 228,
+        "pointer": "/components/schemas/AuditSnapshotsRequest/oneOf/1/properties/id",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 21,
+        "confidence": 1.0,
+        "line": 310,
+        "pointer": "/components/schemas/FileChange",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 21,
+        "confidence": 1.0,
+        "line": 34,
+        "pointer": "/components/securitySchemes/bearerAuth",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 21,
+        "confidence": 1.0,
+        "line": 367,
+        "pointer": "/components/schemas/WaitlistRequest/properties/source",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 21,
+        "confidence": 1.0,
+        "line": 387,
+        "pointer": "/components/schemas/ComplianceGateRequest/properties/policy",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 22,
+        "confidence": 1.0,
+        "line": 335,
+        "pointer": "/components/schemas/ReviewRequest/properties/files/items",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 22,
+        "confidence": 1.0,
+        "line": 339,
+        "pointer": "/components/schemas/ReviewRequest/properties/profile",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 22,
+        "confidence": 1.0,
+        "line": 364,
+        "pointer": "/components/schemas/WaitlistRequest/properties/useCase",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 22,
+        "confidence": 1.0,
+        "line": 380,
+        "pointer": "/components/schemas/ComplianceGateRequest/properties/findings/items",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 22,
+        "confidence": 1.0,
+        "line": 441,
+        "pointer": "/paths/~1cli~1managed~1developer-audit/post/responses/default",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 22,
+        "confidence": 1.0,
+        "line": 481,
+        "pointer": "/paths/~1cli~1managed~1developer-identity/post/responses/default",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 22,
+        "confidence": 1.0,
+        "line": 522,
+        "pointer": "/paths/~1cli~1managed~1developer-evidence/post/responses/default",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 22,
+        "confidence": 1.0,
+        "line": 563,
+        "pointer": "/paths/~1cli~1managed~1finops/post/responses/default",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 22,
+        "confidence": 1.0,
+        "line": 604,
+        "pointer": "/paths/~1cli~1managed~1audit-snapshots/post/responses/default",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 22,
+        "confidence": 1.0,
+        "line": 63,
+        "pointer": "/components/schemas/ManagedDeveloperIdentity/properties/repositories/items",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 22,
+        "confidence": 1.0,
+        "line": 645,
+        "pointer": "/paths/~1cli~1managed~1audit-context/post/responses/default",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 23,
+        "confidence": 1.0,
+        "line": 121,
+        "pointer": "/components/schemas/DeveloperEvidenceRequest/properties/category",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 23,
+        "confidence": 1.0,
+        "line": 270,
+        "pointer": "/components/schemas/AuditContextRequest/properties/declaration/properties/type",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 23,
+        "confidence": 1.0,
+        "line": 316,
+        "pointer": "/components/schemas/FileChange/properties/filename",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 23,
+        "confidence": 1.0,
+        "line": 375,
+        "pointer": "/components/schemas/ComplianceGateRequest/properties/reviewId",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 23,
+        "confidence": 1.0,
+        "line": 378,
+        "pointer": "/components/schemas/ComplianceGateRequest/properties/findings",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 23,
+        "confidence": 1.0,
+        "line": 38,
+        "pointer": "/components/securitySchemes/apiKeyHeader",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 23,
+        "confidence": 1.0,
+        "line": 71,
+        "pointer": "/components/schemas/ManagedDeveloperIdentity/properties/repositories/items/properties/id",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 1001,
+        "pointer": "/paths/~1v1~1saas~1metering~1reserve/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 1022,
+        "pointer": "/paths/~1v1~1saas~1metering~1finalize/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 137,
+        "pointer": "/components/schemas/FinOpsRequest",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 291,
+        "pointer": "/components/schemas/AuditContextRequest/properties/declaration/properties/value",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 327,
+        "pointer": "/components/schemas/ReviewRequest",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 384,
+        "pointer": "/components/schemas/ComplianceGateRequest/properties/riskScore",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 419,
+        "pointer": "/paths/~1cli~1managed~1developer-audit/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 460,
+        "pointer": "/paths/~1cli~1managed~1developer-identity/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 500,
+        "pointer": "/paths/~1cli~1managed~1developer-evidence/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 541,
+        "pointer": "/paths/~1cli~1managed~1finops/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 582,
+        "pointer": "/paths/~1cli~1managed~1audit-snapshots/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 623,
+        "pointer": "/paths/~1cli~1managed~1audit-context/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 677,
+        "pointer": "/paths/~1v1~1waitlist/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 707,
+        "pointer": "/paths/~1v1~1reviews/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 728,
+        "pointer": "/paths/~1v1~1reviews~1autofix/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 749,
+        "pointer": "/paths/~1v1~1reviews~1risk-radar/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 770,
+        "pointer": "/paths/~1v1~1supply-chain~1analyze/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 791,
+        "pointer": "/paths/~1v1~1sbom/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 823,
+        "pointer": "/paths/~1v1~1analysis~1contract-drift/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 844,
+        "pointer": "/paths/~1v1~1compliance~1sarif/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 865,
+        "pointer": "/paths/~1v1~1compliance~1gate/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 886,
+        "pointer": "/paths/~1v1~1analysis~1split-pr/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 907,
+        "pointer": "/paths/~1v1~1analysis~1perf-finops/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 948,
+        "pointer": "/paths/~1v1~1tasks/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 24,
+        "confidence": 1.0,
+        "line": 980,
+        "pointer": "/paths/~1v1~1saas~1surface-lease~1issue/post/requestBody",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 1005,
+        "pointer": "/paths/~1v1~1saas~1metering~1reserve/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 1026,
+        "pointer": "/paths/~1v1~1saas~1metering~1finalize/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 146,
+        "pointer": "/components/schemas/FinOpsRequest/oneOf/0/properties/action",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 163,
+        "pointer": "/components/schemas/FinOpsRequest/oneOf/1/properties/action",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 181,
+        "pointer": "/components/schemas/FinOpsRequest/oneOf/2/properties/action",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 203,
+        "pointer": "/components/schemas/AuditSnapshotsRequest/oneOf/0/properties/action",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 221,
+        "pointer": "/components/schemas/AuditSnapshotsRequest/oneOf/1/properties/action",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 28,
+        "pointer": "/components/securitySchemes/managedSession",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 295,
+        "pointer": "/components/schemas/AuditContextRequest/properties/declaration/properties/source",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 423,
+        "pointer": "/paths/~1cli~1managed~1developer-audit/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 464,
+        "pointer": "/paths/~1cli~1managed~1developer-identity/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 504,
+        "pointer": "/paths/~1cli~1managed~1developer-evidence/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 545,
+        "pointer": "/paths/~1cli~1managed~1finops/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 586,
+        "pointer": "/paths/~1cli~1managed~1audit-snapshots/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 627,
+        "pointer": "/paths/~1cli~1managed~1audit-context/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 681,
+        "pointer": "/paths/~1v1~1waitlist/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 711,
+        "pointer": "/paths/~1v1~1reviews/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 732,
+        "pointer": "/paths/~1v1~1reviews~1autofix/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 753,
+        "pointer": "/paths/~1v1~1reviews~1risk-radar/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 774,
+        "pointer": "/paths/~1v1~1supply-chain~1analyze/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 795,
+        "pointer": "/paths/~1v1~1sbom/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 827,
+        "pointer": "/paths/~1v1~1analysis~1contract-drift/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 848,
+        "pointer": "/paths/~1v1~1compliance~1sarif/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 869,
+        "pointer": "/paths/~1v1~1compliance~1gate/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 890,
+        "pointer": "/paths/~1v1~1analysis~1split-pr/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 911,
+        "pointer": "/paths/~1v1~1analysis~1perf-finops/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 952,
+        "pointer": "/paths/~1v1~1tasks/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 25,
+        "confidence": 1.0,
+        "line": 984,
+        "pointer": "/paths/~1v1~1saas~1surface-lease~1issue/post/requestBody/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 26,
+        "confidence": 1.0,
+        "line": 184,
+        "pointer": "/components/schemas/FinOpsRequest/oneOf/2/properties/invoice",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 26,
+        "confidence": 1.0,
+        "line": 248,
+        "pointer": "/components/schemas/AuditContextRequest/properties/declaration",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 26,
+        "confidence": 1.0,
+        "line": 322,
+        "pointer": "/components/schemas/FileChange/properties/fileContent",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 26,
+        "confidence": 1.0,
+        "line": 348,
+        "pointer": "/components/schemas/WaitlistRequest",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 26,
+        "confidence": 1.0,
+        "line": 390,
+        "pointer": "/components/schemas/ComplianceGateRequest/properties/policy/properties/profile",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 27,
+        "confidence": 1.0,
+        "line": 117,
+        "pointer": "/components/schemas/DeveloperEvidenceRequest/properties/repositoryId",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 27,
+        "confidence": 1.0,
+        "line": 166,
+        "pointer": "/components/schemas/FinOpsRequest/oneOf/1/properties/revision",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 27,
+        "confidence": 1.0,
+        "line": 244,
+        "pointer": "/components/schemas/AuditContextRequest/properties/repositoryId",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 27,
+        "confidence": 1.0,
+        "line": 361,
+        "pointer": "/components/schemas/WaitlistRequest/properties/organization",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 27,
+        "confidence": 1.0,
+        "line": 434,
+        "pointer": "/paths/~1cli~1managed~1developer-audit/post/responses/200/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 27,
+        "confidence": 1.0,
+        "line": 475,
+        "pointer": "/paths/~1cli~1managed~1developer-identity/post/responses/200/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 27,
+        "confidence": 1.0,
+        "line": 515,
+        "pointer": "/paths/~1cli~1managed~1developer-evidence/post/responses/200/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 27,
+        "confidence": 1.0,
+        "line": 556,
+        "pointer": "/paths/~1cli~1managed~1finops/post/responses/200/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 27,
+        "confidence": 1.0,
+        "line": 57,
+        "pointer": "/components/schemas/ManagedDeveloperIdentity/properties/githubUserId",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 27,
+        "confidence": 1.0,
+        "line": 597,
+        "pointer": "/paths/~1cli~1managed~1audit-snapshots/post/responses/200/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 27,
+        "confidence": 1.0,
+        "line": 61,
+        "pointer": "/components/schemas/ManagedDeveloperIdentity/properties/repositories",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 27,
+        "confidence": 1.0,
+        "line": 638,
+        "pointer": "/paths/~1cli~1managed~1audit-context/post/responses/200/content/application~1json/schema",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 27,
+        "confidence": 1.0,
+        "line": 92,
+        "pointer": "/components/schemas/DeveloperAuditRequest/properties/repositoryId",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 29,
+        "confidence": 1.0,
+        "line": 262,
+        "pointer": "/components/schemas/AuditContextRequest/properties/declaration/properties/snapshotId",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 29,
+        "confidence": 1.0,
+        "line": 299,
+        "pointer": "/components/schemas/AuditContextRequest/properties/declaration/properties/supersedes",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 29,
+        "confidence": 1.0,
+        "line": 75,
+        "pointer": "/components/schemas/ManagedDeveloperIdentity/properties/repositories/items/properties/fullName",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 30,
+        "confidence": 1.0,
+        "line": 236,
+        "pointer": "/components/schemas/AuditContextRequest",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 30,
+        "confidence": 1.0,
+        "line": 284,
+        "pointer": "/components/schemas/AuditContextRequest/properties/declaration/properties/effectiveTo",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 31,
+        "confidence": 1.0,
+        "line": 149,
+        "pointer": "/components/schemas/FinOpsRequest/oneOf/0/properties/repositoryId",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 31,
+        "confidence": 1.0,
+        "line": 206,
+        "pointer": "/components/schemas/AuditSnapshotsRequest/oneOf/0/properties/repositoryId",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 31,
+        "confidence": 1.0,
+        "line": 224,
+        "pointer": "/components/schemas/AuditSnapshotsRequest/oneOf/1/properties/repositoryId",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 32,
+        "confidence": 1.0,
+        "line": 193,
+        "pointer": "/components/schemas/AuditSnapshotsRequest",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 32,
+        "confidence": 1.0,
+        "line": 266,
+        "pointer": "/components/schemas/AuditContextRequest/properties/declaration/properties/contributorId",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 32,
+        "confidence": 1.0,
+        "line": 280,
+        "pointer": "/components/schemas/AuditContextRequest/properties/declaration/properties/effectiveFrom",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 32,
+        "confidence": 1.0,
+        "line": 372,
+        "pointer": "/components/schemas/ComplianceGateRequest",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 32,
+        "confidence": 1.0,
+        "line": 83,
+        "pointer": "/components/schemas/DeveloperAuditRequest",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 33,
+        "confidence": 1.0,
+        "line": 110,
+        "pointer": "/components/schemas/DeveloperEvidenceRequest/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 33,
+        "confidence": 1.0,
+        "line": 238,
+        "pointer": "/components/schemas/AuditContextRequest/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 33,
+        "confidence": 1.0,
+        "line": 47,
+        "pointer": "/components/schemas/ManagedDeveloperIdentityRequest/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 33,
+        "confidence": 1.0,
+        "line": 51,
+        "pointer": "/components/schemas/ManagedDeveloperIdentity/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 33,
+        "confidence": 1.0,
+        "line": 85,
+        "pointer": "/components/schemas/DeveloperAuditRequest/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 35,
+        "confidence": 1.0,
+        "line": 108,
+        "pointer": "/components/schemas/DeveloperEvidenceRequest",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 35,
+        "confidence": 1.0,
+        "line": 49,
+        "pointer": "/components/schemas/ManagedDeveloperIdentity",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 37,
+        "confidence": 1.0,
+        "line": 132,
+        "pointer": "/components/schemas/DeveloperEvidenceRequest/properties/input/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 37,
+        "confidence": 1.0,
+        "line": 141,
+        "pointer": "/components/schemas/FinOpsRequest/oneOf/0/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 37,
+        "confidence": 1.0,
+        "line": 157,
+        "pointer": "/components/schemas/FinOpsRequest/oneOf/1/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 37,
+        "confidence": 1.0,
+        "line": 175,
+        "pointer": "/components/schemas/FinOpsRequest/oneOf/2/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 37,
+        "confidence": 1.0,
+        "line": 197,
+        "pointer": "/components/schemas/AuditSnapshotsRequest/oneOf/0/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 37,
+        "confidence": 1.0,
+        "line": 214,
+        "pointer": "/components/schemas/AuditSnapshotsRequest/oneOf/1/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 37,
+        "confidence": 1.0,
+        "line": 250,
+        "pointer": "/components/schemas/AuditContextRequest/properties/declaration/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 39,
+        "confidence": 1.0,
+        "line": 65,
+        "pointer": "/components/schemas/ManagedDeveloperIdentity/properties/repositories/items/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 41,
+        "confidence": 1.0,
+        "line": 168,
+        "pointer": "/components/schemas/FinOpsRequest/oneOf/1/properties/revision/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 41,
+        "confidence": 1.0,
+        "line": 186,
+        "pointer": "/components/schemas/FinOpsRequest/oneOf/2/properties/invoice/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 42,
+        "confidence": 1.0,
+        "line": 45,
+        "pointer": "/components/schemas/ManagedDeveloperIdentityRequest",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 43,
+        "confidence": 1.0,
+        "line": 436,
+        "pointer": "/paths/~1cli~1managed~1developer-audit/post/responses/200/content/application~1json/schema/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 43,
+        "confidence": 1.0,
+        "line": 517,
+        "pointer": "/paths/~1cli~1managed~1developer-evidence/post/responses/200/content/application~1json/schema/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 43,
+        "confidence": 1.0,
+        "line": 558,
+        "pointer": "/paths/~1cli~1managed~1finops/post/responses/200/content/application~1json/schema/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 43,
+        "confidence": 1.0,
+        "line": 599,
+        "pointer": "/paths/~1cli~1managed~1audit-snapshots/post/responses/200/content/application~1json/schema/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      },
+      {
+        "column": 43,
+        "confidence": 1.0,
+        "line": 640,
+        "pointer": "/paths/~1cli~1managed~1audit-context/post/responses/200/content/application~1json/schema/additionalProperties",
+        "source": "local://b68dcd52c65f0654c4512c7c088fa6b19e73ef0d118390def3da56f2c7a9bee3"
+      }
+    ],
+    "provenance_count": 200,
+    "provenance_omitted_count": 0,
+    "provenance_sha256": "bfba15a2a6e55b8d8d26969bfe6aae63ae52cf7d6ae1fe93a108c003e8c1210a",
+    "semantic_fingerprint": "b06781a26c4469e8f12830a04d455957bf620d42b9e1df155e93ee00f293d1c9",
+    "semantic_ir_sha256": "b06781a26c4469e8f12830a04d455957bf620d42b9e1df155e93ee00f293d1c9",
+    "semantic_ir_version": "1.14.0",
+    "version": "0.3.4"
+  }
+}

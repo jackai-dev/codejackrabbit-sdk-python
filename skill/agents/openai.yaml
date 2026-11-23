@@ -1,0 +1,4 @@
+interface:
+  display_name: "codejackrabbit Library"
+  short_description: "Build confidently with codejackrabbit"
+  default_prompt: "Use $use-codejackrabbit to implement a correct codejackrabbit integration."

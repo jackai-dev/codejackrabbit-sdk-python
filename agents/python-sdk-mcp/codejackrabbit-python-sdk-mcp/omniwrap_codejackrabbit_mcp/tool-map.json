@@ -1,0 +1,6127 @@
+{
+  "access_policy": {
+    "allowlist_environment": "OMNIWRAP_MCP_ALLOWED_OPERATIONS",
+    "default": "deny-all",
+    "granularity": "exact-operation-id",
+    "read_only_environment": "OMNIWRAP_MCP_READ_ONLY",
+    "read_only_tools": 7,
+    "write_tools": 21
+  },
+  "auth_schemes": [
+    "apiKeyHeader",
+    "bearerAuth",
+    "managedSession"
+  ],
+  "contract_fingerprint": "b06781a26c4469e8f12830a04d455957bf620d42b9e1df155e93ee00f293d1c9",
+  "credential_descriptors": {
+    "apiKeyHeader": {
+      "location": "header",
+      "name": "x-codejackrabbit-api-key",
+      "type": "apiKey"
+    },
+    "bearerAuth": {
+      "scheme": "bearer",
+      "type": "http"
+    },
+    "managedSession": {
+      "scheme": "bearer",
+      "type": "http"
+    }
+  },
+  "credential_environment": {
+    "auth_json": "OMNIWRAP_MCP_AUTH_JSON",
+    "schemes": {
+      "apiKeyHeader": "OMNIWRAP_MCP_CREDENTIAL_APIKEYHEADER",
+      "bearerAuth": "OMNIWRAP_MCP_CREDENTIAL_BEARERAUTH",
+      "managedSession": "OMNIWRAP_MCP_CREDENTIAL_MANAGEDSESSION"
+    }
+  },
+  "mode": "code",
+  "omitted_operations": [],
+  "operations": [
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/v1/analysis/contract-drift"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Detect breaking API symbol removals, signature narrowing, and destructive SQL migrations",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/v1/analysis/contract-drift"
+        ]
+      },
+      "inputSchema": {
+        "$defs": {
+          "FileChange": {
+            "properties": {
+              "diff": {
+                "type": "string"
+              },
+              "fileContent": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "filename"
+            ],
+            "type": "object"
+          },
+          "ReviewRequest": {
+            "properties": {
+              "files": {
+                "items": {
+                  "$ref": "#/$defs/FileChange"
+                },
+                "type": "array"
+              },
+              "profile": {
+                "enum": [
+                  "chill",
+                  "assertive"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "files"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "$ref": "#/$defs/ReviewRequest"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "analyzeContractDrift",
+      "operation_id": "analyzeContractDrift",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "analyzeContractDrift"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/analysis/contract-drift",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "analyze_contract_drift",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Detect breaking API symbol removals, signature narrowing, and destructive SQL migrations",
+      "title": "analyzeContractDrift"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/v1/analysis/perf-finops"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Detect N+1 queries in loops, blocking sync I/O, and unbounded LLM FinOps hazards",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/v1/analysis/perf-finops"
+        ]
+      },
+      "inputSchema": {
+        "$defs": {
+          "FileChange": {
+            "properties": {
+              "diff": {
+                "type": "string"
+              },
+              "fileContent": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "filename"
+            ],
+            "type": "object"
+          },
+          "ReviewRequest": {
+            "properties": {
+              "files": {
+                "items": {
+                  "$ref": "#/$defs/FileChange"
+                },
+                "type": "array"
+              },
+              "profile": {
+                "enum": [
+                  "chill",
+                  "assertive"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "files"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "$ref": "#/$defs/ReviewRequest"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "analyzePerfFinOps",
+      "operation_id": "analyzePerfFinOps",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "analyzePerfFinOps"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/analysis/perf-finops",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "analyze_perf_fin_ops",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Detect N+1 queries in loops, blocking sync I/O, and unbounded LLM FinOps hazards",
+      "title": "analyzePerfFinOps"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/v1/supply-chain/analyze"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Detect typosquatting, AI slopsquatting, and license compliance issues",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/v1/supply-chain/analyze"
+        ]
+      },
+      "inputSchema": {
+        "$defs": {
+          "FileChange": {
+            "properties": {
+              "diff": {
+                "type": "string"
+              },
+              "fileContent": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "filename"
+            ],
+            "type": "object"
+          },
+          "ReviewRequest": {
+            "properties": {
+              "files": {
+                "items": {
+                  "$ref": "#/$defs/FileChange"
+                },
+                "type": "array"
+              },
+              "profile": {
+                "enum": [
+                  "chill",
+                  "assertive"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "files"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "$ref": "#/$defs/ReviewRequest"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "analyzeSupplyChain",
+      "operation_id": "analyzeSupplyChain",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "analyzeSupplyChain"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/supply-chain/analyze",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "analyze_supply_chain",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Detect typosquatting, AI slopsquatting, and license compliance issues",
+      "title": "analyzeSupplyChain"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/v1/reviews/autofix"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Synthesize a conflict-free multi-file unified diff remediation bundle",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/v1/reviews/autofix"
+        ]
+      },
+      "inputSchema": {
+        "$defs": {
+          "FileChange": {
+            "properties": {
+              "diff": {
+                "type": "string"
+              },
+              "fileContent": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "filename"
+            ],
+            "type": "object"
+          },
+          "ReviewRequest": {
+            "properties": {
+              "files": {
+                "items": {
+                  "$ref": "#/$defs/FileChange"
+                },
+                "type": "array"
+              },
+              "profile": {
+                "enum": [
+                  "chill",
+                  "assertive"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "files"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "$ref": "#/$defs/ReviewRequest"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "buildAutofixBundle",
+      "operation_id": "buildAutofixBundle",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "buildAutofixBundle"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/reviews/autofix",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "build_autofix_bundle",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Synthesize a conflict-free multi-file unified diff remediation bundle",
+      "title": "buildAutofixBundle"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [
+            {
+              "kind": "resource-exists",
+              "resource": "/cli/managed/developer-audit"
+            }
+          ],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "managedSession"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/cli/managed/developer-audit"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Collect and save a paid repository work audit",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [
+          {
+            "kind": "resource-exists",
+            "resource": "/cli/managed/developer-audit"
+          }
+        ],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "managedSession"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/cli/managed/developer-audit"
+        ]
+      },
+      "inputSchema": {
+        "$defs": {
+          "DeveloperAuditRequest": {
+            "additionalProperties": false,
+            "properties": {
+              "from": {
+                "format": "date",
+                "type": "string"
+              },
+              "repositoryId": {
+                "description": "Immutable connected GitHub repository ID.",
+                "pattern": "^[1-9][0-9]{0,19}$",
+                "type": "string"
+              },
+              "to": {
+                "description": "Inclusive UTC date; at most 90 days, ending today or earlier.",
+                "format": "date",
+                "type": "string"
+              }
+            },
+            "required": [
+              "repositoryId",
+              "from",
+              "to"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "$ref": "#/$defs/DeveloperAuditRequest"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "collectDeveloperAudit",
+      "operation_id": "collectDeveloperAudit",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "collectDeveloperAudit"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/cli/managed/developer-audit",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": "application/json",
+        "status_code": "200",
+        "typed": true
+      },
+      "sdk_method": "collect_developer_audit",
+      "security": [
+        [
+          "managedSession"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Collect and save a paid repository work audit",
+      "title": "collectDeveloperAudit"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/v1/reviews/risk-radar"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Compute the 6-axis PR Risk Radar score and grade",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/v1/reviews/risk-radar"
+        ]
+      },
+      "inputSchema": {
+        "$defs": {
+          "FileChange": {
+            "properties": {
+              "diff": {
+                "type": "string"
+              },
+              "fileContent": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "filename"
+            ],
+            "type": "object"
+          },
+          "ReviewRequest": {
+            "properties": {
+              "files": {
+                "items": {
+                  "$ref": "#/$defs/FileChange"
+                },
+                "type": "array"
+              },
+              "profile": {
+                "enum": [
+                  "chill",
+                  "assertive"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "files"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "$ref": "#/$defs/ReviewRequest"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "computeRiskRadar",
+      "operation_id": "computeRiskRadar",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "computeRiskRadar"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/reviews/risk-radar",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "compute_risk_radar",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Compute the 6-axis PR Risk Radar score and grade",
+      "title": "computeRiskRadar"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/tasks"
+            }
+          ],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/v1/tasks"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Create a planned autonomous coding task",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [
+          {
+            "kind": "resource-exists",
+            "resource": "/v1/tasks"
+          }
+        ],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/v1/tasks"
+        ]
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "createCodingTask",
+      "operation_id": "createCodingTask",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "createCodingTask"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/tasks",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "201",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "create_coding_task",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Create a planned autonomous coding task",
+      "title": "createCodingTask"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/v1/reviews"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Run the 5-stage deterministic + LLM code review pipeline",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/v1/reviews"
+        ]
+      },
+      "inputSchema": {
+        "$defs": {
+          "FileChange": {
+            "properties": {
+              "diff": {
+                "type": "string"
+              },
+              "fileContent": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "filename"
+            ],
+            "type": "object"
+          },
+          "ReviewRequest": {
+            "properties": {
+              "files": {
+                "items": {
+                  "$ref": "#/$defs/FileChange"
+                },
+                "type": "array"
+              },
+              "profile": {
+                "enum": [
+                  "chill",
+                  "assertive"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "files"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "$ref": "#/$defs/ReviewRequest"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "createReview",
+      "operation_id": "createReview",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "createReview"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/reviews",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "create_review",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Run the 5-stage deterministic + LLM code review pipeline",
+      "title": "createReview"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [
+            {
+              "kind": "resource-exists",
+              "resource": "/cli/managed/developer-identity"
+            }
+          ],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "managedSession"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/cli/managed/developer-identity"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Read the current verified GitHub identity and authorized source inventory",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [
+          {
+            "kind": "resource-exists",
+            "resource": "/cli/managed/developer-identity"
+          }
+        ],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "managedSession"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/cli/managed/developer-identity"
+        ]
+      },
+      "inputSchema": {
+        "$defs": {
+          "ManagedDeveloperIdentityRequest": {
+            "additionalProperties": false,
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "$ref": "#/$defs/ManagedDeveloperIdentityRequest"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "currentDeveloperIdentity",
+      "operation_id": "currentDeveloperIdentity",
+      "outputSchema": {
+        "$defs": {
+          "ManagedDeveloperIdentity": {
+            "additionalProperties": false,
+            "properties": {
+              "githubUserId": {
+                "pattern": "^[1-9][0-9]{0,19}$",
+                "type": "string"
+              },
+              "repositories": {
+                "items": {
+                  "additionalProperties": false,
+                  "properties": {
+                    "fullName": {
+                      "type": "string"
+                    },
+                    "id": {
+                      "pattern": "^[1-9][0-9]{0,19}$",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "fullName"
+                  ],
+                  "type": "object"
+                },
+                "type": "array"
+              }
+            },
+            "required": [
+              "githubUserId",
+              "repositories"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "$ref": "#/$defs/ManagedDeveloperIdentity"
+          },
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "currentDeveloperIdentity"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/cli/managed/developer-identity",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": "application/json",
+        "status_code": "200",
+        "typed": true
+      },
+      "sdk_method": "current_developer_identity",
+      "security": [
+        [
+          "managedSession"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Read the current verified GitHub identity and authorized source inventory",
+      "title": "currentDeveloperIdentity"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [
+            {
+              "kind": "resource-exists",
+              "resource": "/cli/managed/audit-context"
+            }
+          ],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "managedSession"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/cli/managed/audit-context"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Declare or correct dated context for a contributor in a saved report",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [
+          {
+            "kind": "resource-exists",
+            "resource": "/cli/managed/audit-context"
+          }
+        ],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "managedSession"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/cli/managed/audit-context"
+        ]
+      },
+      "inputSchema": {
+        "$defs": {
+          "AuditContextRequest": {
+            "additionalProperties": false,
+            "properties": {
+              "declaration": {
+                "additionalProperties": false,
+                "properties": {
+                  "contributorId": {
+                    "pattern": "^[1-9][0-9]{0,19}$",
+                    "type": "string"
+                  },
+                  "effectiveFrom": {
+                    "format": "date",
+                    "type": "string"
+                  },
+                  "effectiveTo": {
+                    "format": "date",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "snapshotId": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "source": {
+                    "maxLength": 500,
+                    "type": "string"
+                  },
+                  "supersedes": {
+                    "description": "Prior active declaration ID for the same contributor and type.",
+                    "type": [
+                      "string",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "enum": [
+                      "project_join",
+                      "role",
+                      "task_family",
+                      "availability",
+                      "absence"
+                    ],
+                    "type": "string"
+                  },
+                  "value": {
+                    "maxLength": 200,
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "snapshotId",
+                  "contributorId",
+                  "type",
+                  "effectiveFrom",
+                  "effectiveTo",
+                  "value",
+                  "source",
+                  "supersedes"
+                ],
+                "type": "object"
+              },
+              "repositoryId": {
+                "pattern": "^[1-9][0-9]{0,19}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "repositoryId",
+              "declaration"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "$ref": "#/$defs/AuditContextRequest"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "declareDeveloperProjectContext",
+      "operation_id": "declareDeveloperProjectContext",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "declareDeveloperProjectContext"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/cli/managed/audit-context",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": "application/json",
+        "status_code": "200",
+        "typed": true
+      },
+      "sdk_method": "declare_developer_project_context",
+      "security": [
+        [
+          "managedSession"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Declare or correct dated context for a contributor in a saved report",
+      "title": "declareDeveloperProjectContext"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/v1/compliance/gate"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Evaluate changes against SOC2, PCI-DSS, HIPAA, or Standard compliance gates",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/v1/compliance/gate"
+        ]
+      },
+      "inputSchema": {
+        "$defs": {
+          "ComplianceGateRequest": {
+            "properties": {
+              "findings": {
+                "items": {
+                  "type": "object"
+                },
+                "type": "array"
+              },
+              "policy": {
+                "properties": {
+                  "profile": {
+                    "enum": [
+                      "soc2",
+                      "pci-dss",
+                      "hipaa",
+                      "standard"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              },
+              "reviewId": {
+                "type": "string"
+              },
+              "riskScore": {
+                "type": "number"
+              }
+            },
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "$ref": "#/$defs/ComplianceGateRequest"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "evaluateComplianceGate",
+      "operation_id": "evaluateComplianceGate",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "evaluateComplianceGate"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/compliance/gate",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "evaluate_compliance_gate",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Evaluate changes against SOC2, PCI-DSS, HIPAA, or Standard compliance gates",
+      "title": "evaluateComplianceGate"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/v1/compliance/sarif"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Export review findings and fixes to OASIS SARIF 2.1.0 format",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/v1/compliance/sarif"
+        ]
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "exportSarif",
+      "operation_id": "exportSarif",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "exportSarif"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/compliance/sarif",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "export_sarif",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Export review findings and fixes to OASIS SARIF 2.1.0 format",
+      "title": "exportSarif"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": true,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/v1/saas/metering/finalize"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Phase 2 of 3-phase idempotent metering: commit actual review and LLM usage",
+      "effects": {
+        "compensation": null,
+        "idempotent": true,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/v1/saas/metering/finalize"
+        ]
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "finalizeMeteringQuota",
+      "operation_id": "finalizeMeteringQuota",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "finalizeMeteringQuota"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/saas/metering/finalize",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "finalize_metering_quota",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Phase 2 of 3-phase idempotent metering: commit actual review and LLM usage",
+      "title": "finalizeMeteringQuota"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/v1/sbom"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Generate a CycloneDX 1.5 Software Bill of Materials (SBOM)",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/v1/sbom"
+        ]
+      },
+      "inputSchema": {
+        "$defs": {
+          "FileChange": {
+            "properties": {
+              "diff": {
+                "type": "string"
+              },
+              "fileContent": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "filename"
+            ],
+            "type": "object"
+          },
+          "ReviewRequest": {
+            "properties": {
+              "files": {
+                "items": {
+                  "$ref": "#/$defs/FileChange"
+                },
+                "type": "array"
+              },
+              "profile": {
+                "enum": [
+                  "chill",
+                  "assertive"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "files"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "$ref": "#/$defs/ReviewRequest"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "generateSbom",
+      "operation_id": "generateSbom",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "generateSbom"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/sbom",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "generate_sbom",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Generate a CycloneDX 1.5 Software Bill of Materials (SBOM)",
+      "title": "generateSbom"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": true,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": true,
+          "writes": []
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "read-only",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "bindings": [],
+      "content_types": [],
+      "description": "Call the bundled Python SDK operation. Compute engineering hours saved and prevented production outage ROI",
+      "effects": {
+        "compensation": null,
+        "idempotent": true,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": true,
+        "writes": []
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "method": "GET",
+      "name": "getAnalyticsRoi",
+      "operation_id": "getAnalyticsRoi",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "getAnalyticsRoi"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/analytics/roi",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "get_analytics_roi",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Compute engineering hours saved and prevented production outage ROI",
+      "title": "getAnalyticsRoi"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": true,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": true,
+          "writes": []
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "read-only",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "bindings": [],
+      "content_types": [],
+      "description": "Call the bundled Python SDK operation. List all autonomous review, agentic, and compliance capabilities",
+      "effects": {
+        "compensation": null,
+        "idempotent": true,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": true,
+        "writes": []
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "method": "GET",
+      "name": "getCapabilities",
+      "operation_id": "getCapabilities",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "getCapabilities"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/capabilities",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "get_capabilities",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "List all autonomous review, agentic, and compliance capabilities",
+      "title": "getCapabilities"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": true,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": true,
+          "writes": []
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "read-only",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "bindings": [],
+      "content_types": [],
+      "description": "Call the bundled Python SDK operation. Check server health and active storage backend",
+      "effects": {
+        "compensation": null,
+        "idempotent": true,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": true,
+        "writes": []
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "method": "GET",
+      "name": "getHealth",
+      "operation_id": "getHealth",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "getHealth"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/health",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "get_health",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Check server health and active storage backend",
+      "title": "getHealth"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": true,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": true,
+          "writes": []
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "read-only",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "bindings": [],
+      "content_types": [],
+      "description": "Call the bundled Python SDK operation. Retrieve the autonomous SaaS multi-surface adapter blueprint and pricing matrix",
+      "effects": {
+        "compensation": null,
+        "idempotent": true,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": true,
+        "writes": []
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "method": "GET",
+      "name": "getSaasBlueprint",
+      "operation_id": "getSaasBlueprint",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "getSaasBlueprint"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/saas/blueprint",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "get_saas_blueprint",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Retrieve the autonomous SaaS multi-surface adapter blueprint and pricing matrix",
+      "title": "getSaasBlueprint"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": true,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": true,
+          "writes": []
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "read-only",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "bindings": [],
+      "content_types": [],
+      "description": "Call the bundled Python SDK operation. List prioritized cross-repository pull requests (P0-P3)",
+      "effects": {
+        "compensation": null,
+        "idempotent": true,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": true,
+        "writes": []
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "method": "GET",
+      "name": "getTriageQueue",
+      "operation_id": "getTriageQueue",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "getTriageQueue"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/triage",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "get_triage_queue",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "List prioritized cross-repository pull requests (P0-P3)",
+      "title": "getTriageQueue"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/v1/saas/surface-lease/issue"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Issue an anti-sharing cryptographic lease for a CLI, IDE, MCP, or SCM surface",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/v1/saas/surface-lease/issue"
+        ]
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "issueSurfaceLease",
+      "operation_id": "issueSurfaceLease",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "issueSurfaceLease"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/saas/surface-lease/issue",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "issue_surface_lease",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Issue an anti-sharing cryptographic lease for a CLI, IDE, MCP, or SCM surface",
+      "title": "issueSurfaceLease"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": true,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": true,
+          "writes": []
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "read-only",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "bindings": [],
+      "content_types": [],
+      "description": "Call the bundled Python SDK operation. List autonomous coding tasks",
+      "effects": {
+        "compensation": null,
+        "idempotent": true,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": true,
+        "writes": []
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "method": "GET",
+      "name": "listCodingTasks",
+      "operation_id": "listCodingTasks",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "listCodingTasks"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/tasks",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "list_coding_tasks",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "List autonomous coding tasks",
+      "title": "listCodingTasks"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": true,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": true,
+          "writes": []
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "read-only",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": true
+      },
+      "bindings": [],
+      "content_types": [],
+      "description": "Call the bundled Python SDK operation. List invitation waitlist entries (JSON or CSV)",
+      "effects": {
+        "compensation": null,
+        "idempotent": true,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": true,
+        "writes": []
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {},
+        "type": "object"
+      },
+      "method": "GET",
+      "name": "listWaitlist",
+      "operation_id": "listWaitlist",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "listWaitlist"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/waitlist",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "list_waitlist",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "List invitation waitlist entries (JSON or CSV)",
+      "title": "listWaitlist"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [
+            {
+              "kind": "resource-exists",
+              "resource": "/cli/managed/audit-snapshots"
+            }
+          ],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "managedSession"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/cli/managed/audit-snapshots"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. List or reopen retained immutable repository audit snapshots",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [
+          {
+            "kind": "resource-exists",
+            "resource": "/cli/managed/audit-snapshots"
+          }
+        ],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "managedSession"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/cli/managed/audit-snapshots"
+        ]
+      },
+      "inputSchema": {
+        "$defs": {
+          "AuditSnapshotsRequest": {
+            "oneOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "action": {
+                    "const": "list"
+                  },
+                  "repositoryId": {
+                    "pattern": "^[1-9][0-9]{0,19}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "action",
+                  "repositoryId"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "action": {
+                    "const": "get"
+                  },
+                  "id": {
+                    "pattern": "^[a-f0-9]{64}$",
+                    "type": "string"
+                  },
+                  "repositoryId": {
+                    "pattern": "^[1-9][0-9]{0,19}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "action",
+                  "repositoryId",
+                  "id"
+                ],
+                "type": "object"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "$ref": "#/$defs/AuditSnapshotsRequest"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "managedAuditSnapshots",
+      "operation_id": "managedAuditSnapshots",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "managedAuditSnapshots"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/cli/managed/audit-snapshots",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": "application/json",
+        "status_code": "200",
+        "typed": true
+      },
+      "sdk_method": "managed_audit_snapshots",
+      "security": [
+        [
+          "managedSession"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "List or reopen retained immutable repository audit snapshots",
+      "title": "managedAuditSnapshots"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/v1/analysis/split-pr"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Decompose a pull request into a topological stack of atomic sub-PRs",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/v1/analysis/split-pr"
+        ]
+      },
+      "inputSchema": {
+        "$defs": {
+          "FileChange": {
+            "properties": {
+              "diff": {
+                "type": "string"
+              },
+              "fileContent": {
+                "type": "string"
+              },
+              "filename": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "filename"
+            ],
+            "type": "object"
+          },
+          "ReviewRequest": {
+            "properties": {
+              "files": {
+                "items": {
+                  "$ref": "#/$defs/FileChange"
+                },
+                "type": "array"
+              },
+              "profile": {
+                "enum": [
+                  "chill",
+                  "assertive"
+                ],
+                "type": "string"
+              }
+            },
+            "required": [
+              "files"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "$ref": "#/$defs/ReviewRequest"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "planStackedPrSplit",
+      "operation_id": "planStackedPrSplit",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "planStackedPrSplit"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/analysis/split-pr",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "plan_stacked_pr_split",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Decompose a pull request into a topological stack of atomic sub-PRs",
+      "title": "planStackedPrSplit"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [
+            {
+              "kind": "resource-exists",
+              "resource": "/cli/managed/finops"
+            }
+          ],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "managedSession"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/cli/managed/finops"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Read cost evidence or submit administrator rate and invoice declarations",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [
+          {
+            "kind": "resource-exists",
+            "resource": "/cli/managed/finops"
+          }
+        ],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "managedSession"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/cli/managed/finops"
+        ]
+      },
+      "inputSchema": {
+        "$defs": {
+          "FinOpsRequest": {
+            "oneOf": [
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "action": {
+                    "const": "report"
+                  },
+                  "repositoryId": {
+                    "pattern": "^[1-9][0-9]{0,19}$",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "action"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "action": {
+                    "const": "approve-rates"
+                  },
+                  "revision": {
+                    "additionalProperties": true,
+                    "description": "Effective USD rate revision with id, provider, exact model, validFrom, validUntil, rates (input/output/cacheRead/cacheWrite/reasoning), inputIncludesCache and outputIncludesReasoning. Rates are decimal strings per million tokens.",
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "action",
+                  "revision"
+                ],
+                "type": "object"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "action": {
+                    "const": "import-invoice"
+                  },
+                  "invoice": {
+                    "additionalProperties": true,
+                    "description": "Operator declaration with id, provider, currency USD and up to 1000 unique requestId/amountUsd lines. This is not independently verified billing.",
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "action",
+                  "invoice"
+                ],
+                "type": "object"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "$ref": "#/$defs/FinOpsRequest"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "providerCostEvidence",
+      "operation_id": "providerCostEvidence",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "providerCostEvidence"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/cli/managed/finops",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": "application/json",
+        "status_code": "200",
+        "typed": true
+      },
+      "sdk_method": "provider_cost_evidence",
+      "security": [
+        [
+          "managedSession"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Read cost evidence or submit administrator rate and invoice declarations",
+      "title": "providerCostEvidence"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/waitlist"
+            }
+          ],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/v1/waitlist"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Register an email on the invitation-only waitlist",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [
+          {
+            "kind": "resource-exists",
+            "resource": "/v1/waitlist"
+          }
+        ],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/v1/waitlist"
+        ]
+      },
+      "inputSchema": {
+        "$defs": {
+          "WaitlistRequest": {
+            "properties": {
+              "email": {
+                "format": "email",
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "organization": {
+                "type": "string"
+              },
+              "source": {
+                "type": "string"
+              },
+              "useCase": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "email"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "$ref": "#/$defs/WaitlistRequest"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "registerWaitlist",
+      "operation_id": "registerWaitlist",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "registerWaitlist"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/waitlist",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "201",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "register_waitlist",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Register an email on the invitation-only waitlist",
+      "title": "registerWaitlist"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": true,
+          "postconditions": [],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/v1/saas/metering/reserve"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": true,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Phase 1 of 3-phase idempotent metering: reserve seat and token quota before execution",
+      "effects": {
+        "compensation": null,
+        "idempotent": true,
+        "postconditions": [],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "apiKeyHeader",
+              "bearerAuth"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/v1/saas/metering/reserve"
+        ]
+      },
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "type": "object"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "reserveMeteringQuota",
+      "operation_id": "reserveMeteringQuota",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {},
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "reserveMeteringQuota"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/v1/saas/metering/reserve",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": null,
+        "status_code": "200",
+        "typed": false,
+        "untyped_reason": "the success response has no JSON media type"
+      },
+      "sdk_method": "reserve_metering_quota",
+      "security": [
+        [
+          "bearerAuth"
+        ],
+        [
+          "apiKeyHeader"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Phase 1 of 3-phase idempotent metering: reserve seat and token quota before execution",
+      "title": "reserveMeteringQuota"
+    },
+    {
+      "_meta": {
+        "omniwrap/effects": {
+          "compensation": null,
+          "idempotent": false,
+          "postconditions": [
+            {
+              "kind": "resource-exists",
+              "resource": "/cli/managed/developer-evidence"
+            }
+          ],
+          "preconditions": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "managedSession"
+              ]
+            }
+          ],
+          "reversible": "unknown",
+          "writes": [
+            "/cli/managed/developer-evidence"
+          ]
+        },
+        "omniwrap/requires_confirmation": false
+      },
+      "access": "write",
+      "access_source": "effect-signature",
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "bindings": [
+        {
+          "location": "body",
+          "name": "body",
+          "python_name": "body"
+        }
+      ],
+      "content_types": [
+        "application/json"
+      ],
+      "description": "Call the bundled Python SDK operation. Admit revision-linked declarations from the authenticated GitHub user",
+      "effects": {
+        "compensation": null,
+        "idempotent": false,
+        "postconditions": [
+          {
+            "kind": "resource-exists",
+            "resource": "/cli/managed/developer-evidence"
+          }
+        ],
+        "preconditions": [
+          {
+            "kind": "credential-present",
+            "schemes": [
+              "managedSession"
+            ]
+          }
+        ],
+        "reversible": "unknown",
+        "writes": [
+          "/cli/managed/developer-evidence"
+        ]
+      },
+      "inputSchema": {
+        "$defs": {
+          "DeveloperEvidenceRequest": {
+            "additionalProperties": false,
+            "properties": {
+              "category": {
+                "enum": [
+                  "coding",
+                  "review",
+                  "testing",
+                  "deployment"
+                ],
+                "type": "string"
+              },
+              "input": {
+                "additionalProperties": true,
+                "description": "OTLP JSON or spans input. Every span must match the authorized repository and the authenticated verified GitHub ID and include a full commit SHA. Execution remains reported.",
+                "type": "object"
+              },
+              "repositoryId": {
+                "pattern": "^[1-9][0-9]{0,19}$",
+                "type": "string"
+              }
+            },
+            "required": [
+              "repositoryId",
+              "category",
+              "input"
+            ],
+            "type": "object"
+          }
+        },
+        "additionalProperties": false,
+        "properties": {
+          "body": {
+            "$ref": "#/$defs/DeveloperEvidenceRequest"
+          }
+        },
+        "required": [
+          "body"
+        ],
+        "type": "object"
+      },
+      "method": "POST",
+      "name": "submitDeveloperEvidence",
+      "operation_id": "submitDeveloperEvidence",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "data": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              },
+              "sdk": {
+                "properties": {
+                  "attempts": {
+                    "type": "integer"
+                  },
+                  "remediation": {
+                    "properties": {
+                      "action": {
+                        "type": "string"
+                      },
+                      "code": {
+                        "type": "string"
+                      },
+                      "credential_options": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      "fields": {
+                        "items": {
+                          "type": "object"
+                        },
+                        "type": "array"
+                      },
+                      "parameter": {
+                        "type": "string"
+                      },
+                      "pointer": {
+                        "type": "string"
+                      },
+                      "retry_after": {
+                        "type": "number"
+                      },
+                      "retryable": {
+                        "type": "boolean"
+                      },
+                      "schemes": {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      }
+                    },
+                    "required": [
+                      "code",
+                      "action",
+                      "retryable"
+                    ],
+                    "type": "object"
+                  },
+                  "status_code": {
+                    "type": [
+                      "integer",
+                      "null"
+                    ]
+                  },
+                  "type": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "execution_backend": {
+            "const": "python-sdk"
+          },
+          "operation_id": {
+            "const": "submitDeveloperEvidence"
+          }
+        },
+        "required": [
+          "operation_id",
+          "execution_backend"
+        ],
+        "type": "object"
+      },
+      "path": "/cli/managed/developer-evidence",
+      "requires_confirmation": false,
+      "response": {
+        "media_type": "application/json",
+        "status_code": "200",
+        "typed": true
+      },
+      "sdk_method": "submit_developer_evidence",
+      "security": [
+        [
+          "managedSession"
+        ]
+      ],
+      "stream_option": null,
+      "summary": "Admit revision-linked declarations from the authenticated GitHub user",
+      "title": "submitDeveloperEvidence"
+    }
+  ],
+  "schema": "omniwrap.python-sdk-mcp/1",
+  "sdk": {
+    "language": "python",
+    "module": "omniwrap_mcp_b06781a26c44_sdk"
+  },
+  "server_name": "codejackrabbit-python-sdk",
+  "tools": [
+    {
+      "annotations": {
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true,
+        "readOnlyHint": false
+      },
+      "description": "Runs a bounded Python snippet against the bundled generated Python SDK client in a separate interpreter under an operating-system sandbox (a Windows AppContainer with no network capability inside a Job Object, or Linux bubblewrap); the isolated child has no direct network and its SDK requests are forwarded to the server, which alone reaches the configured API host and holds the credentials. Enabled by default only when that isolation is available; otherwise it returns an execute_disabled refusal and OMNIWRAP_MCP_EXECUTE=enabled cannot bypass isolation. The names `client`, `sdk` and `tmp_path` are available; set `result` to a JSON value to return it.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "code": {
+            "description": "Python source executed against the bundled SDK. Use the `client` object, write to files only under `tmp_path`, and assign a JSON-serializable value to `result`.",
+            "maxLength": 65536,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "code"
+        ],
+        "type": "object"
+      },
+      "name": "execute",
+      "outputSchema": {
+        "additionalProperties": true,
+        "properties": {
+          "error": {
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ],
+            "type": "object"
+          },
+          "exit_code": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "result": {},
+          "stderr": {
+            "type": "string"
+          },
+          "stdout": {
+            "type": "string"
+          },
+          "timed_out": {
+            "type": "boolean"
+          },
+          "truncated_stderr": {
+            "type": "boolean"
+          },
+          "truncated_stdout": {
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      },
+      "title": "Execute Python against the SDK"
+    },
+    {
+      "annotations": {
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false,
+        "readOnlyHint": true
+      },
+      "description": "Search contract-derived documentation for operations, parameters, schemas, error mappings, authentication schemes and SDK method names. Deterministic keyword ranking with bounded results.",
+      "inputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "limit": {
+            "default": 5,
+            "maximum": 20,
+            "minimum": 1,
+            "type": "integer"
+          },
+          "query": {
+            "maxLength": 4096,
+            "minLength": 1,
+            "type": "string"
+          }
+        },
+        "required": [
+          "query"
+        ],
+        "type": "object"
+      },
+      "name": "search_docs",
+      "outputSchema": {
+        "additionalProperties": false,
+        "properties": {
+          "items": {
+            "items": {
+              "additionalProperties": true,
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "method": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "operation_id": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "path": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "score": {
+                  "type": "number"
+                },
+                "sdk_method": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "summary": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "query": {
+            "type": "string"
+          },
+          "ranking": {
+            "type": "string"
+          },
+          "total": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "query",
+          "total",
+          "ranking",
+          "items"
+        ],
+        "type": "object"
+      },
+      "title": "Search the API reference"
+    }
+  ],
+  "version": "0.3.4"
+}

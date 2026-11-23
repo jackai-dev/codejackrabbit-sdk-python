@@ -1,0 +1,1040 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "CodeJackRabbit",
+    "version": "0.3.4",
+    "description": "Official OpenAPI 3.1.0 specification for CodeJackRabbit (`cjr`) -- 5-stage autonomous code review, blast-radius graph, multi-file autofix, supply-chain SBOM, contract drift, SARIF 2.1.0 compliance gates, stacked PR splitting, FinOps guard, and @jackai/app-sdk multi-surface SaaS metering.",
+    "license": {
+      "name": "Apache-2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.codejackrabbit.com",
+      "description": "CodeJackRabbit Cloud & Self-Hosted API"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    },
+    {
+      "apiKeyHeader": []
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "managedSession": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Current JackAISaaS managed product session. Operator API keys do not authorize these customer routes."
+      },
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "apiKeyHeader": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "x-codejackrabbit-api-key"
+      }
+    },
+    "schemas": {
+      "ManagedDeveloperIdentityRequest": {
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ManagedDeveloperIdentity": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "githubUserId",
+          "repositories"
+        ],
+        "properties": {
+          "githubUserId": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]{0,19}$"
+          },
+          "repositories": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "fullName"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[1-9][0-9]{0,19}$"
+                },
+                "fullName": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      },
+      "DeveloperAuditRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "repositoryId",
+          "from",
+          "to"
+        ],
+        "properties": {
+          "repositoryId": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]{0,19}$",
+            "description": "Immutable connected GitHub repository ID."
+          },
+          "from": {
+            "type": "string",
+            "format": "date"
+          },
+          "to": {
+            "type": "string",
+            "format": "date",
+            "description": "Inclusive UTC date; at most 90 days, ending today or earlier."
+          }
+        }
+      },
+      "DeveloperEvidenceRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "repositoryId",
+          "category",
+          "input"
+        ],
+        "properties": {
+          "repositoryId": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]{0,19}$"
+          },
+          "category": {
+            "type": "string",
+            "enum": [
+              "coding",
+              "review",
+              "testing",
+              "deployment"
+            ]
+          },
+          "input": {
+            "type": "object",
+            "additionalProperties": true,
+            "description": "OTLP JSON or spans input. Every span must match the authorized repository and the authenticated verified GitHub ID and include a full commit SHA. Execution remains reported."
+          }
+        }
+      },
+      "FinOpsRequest": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "action"
+            ],
+            "properties": {
+              "action": {
+                "const": "report"
+              },
+              "repositoryId": {
+                "type": "string",
+                "pattern": "^[1-9][0-9]{0,19}$"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "action",
+              "revision"
+            ],
+            "properties": {
+              "action": {
+                "const": "approve-rates"
+              },
+              "revision": {
+                "type": "object",
+                "additionalProperties": true,
+                "description": "Effective USD rate revision with id, provider, exact model, validFrom, validUntil, rates (input/output/cacheRead/cacheWrite/reasoning), inputIncludesCache and outputIncludesReasoning. Rates are decimal strings per million tokens."
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "action",
+              "invoice"
+            ],
+            "properties": {
+              "action": {
+                "const": "import-invoice"
+              },
+              "invoice": {
+                "type": "object",
+                "additionalProperties": true,
+                "description": "Operator declaration with id, provider, currency USD and up to 1000 unique requestId/amountUsd lines. This is not independently verified billing."
+              }
+            }
+          }
+        ]
+      },
+      "AuditSnapshotsRequest": {
+        "oneOf": [
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "action",
+              "repositoryId"
+            ],
+            "properties": {
+              "action": {
+                "const": "list"
+              },
+              "repositoryId": {
+                "type": "string",
+                "pattern": "^[1-9][0-9]{0,19}$"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "action",
+              "repositoryId",
+              "id"
+            ],
+            "properties": {
+              "action": {
+                "const": "get"
+              },
+              "repositoryId": {
+                "type": "string",
+                "pattern": "^[1-9][0-9]{0,19}$"
+              },
+              "id": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            }
+          }
+        ]
+      },
+      "AuditContextRequest": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "repositoryId",
+          "declaration"
+        ],
+        "properties": {
+          "repositoryId": {
+            "type": "string",
+            "pattern": "^[1-9][0-9]{0,19}$"
+          },
+          "declaration": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "snapshotId",
+              "contributorId",
+              "type",
+              "effectiveFrom",
+              "effectiveTo",
+              "value",
+              "source",
+              "supersedes"
+            ],
+            "properties": {
+              "snapshotId": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "contributorId": {
+                "type": "string",
+                "pattern": "^[1-9][0-9]{0,19}$"
+              },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "project_join",
+                  "role",
+                  "task_family",
+                  "availability",
+                  "absence"
+                ]
+              },
+              "effectiveFrom": {
+                "type": "string",
+                "format": "date"
+              },
+              "effectiveTo": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              },
+              "value": {
+                "type": "string",
+                "maxLength": 200
+              },
+              "source": {
+                "type": "string",
+                "maxLength": 500
+              },
+              "supersedes": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "description": "Prior active declaration ID for the same contributor and type."
+              }
+            }
+          }
+        }
+      },
+      "FileChange": {
+        "type": "object",
+        "required": [
+          "filename"
+        ],
+        "properties": {
+          "filename": {
+            "type": "string"
+          },
+          "diff": {
+            "type": "string"
+          },
+          "fileContent": {
+            "type": "string"
+          }
+        }
+      },
+      "ReviewRequest": {
+        "type": "object",
+        "required": [
+          "files"
+        ],
+        "properties": {
+          "files": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FileChange"
+            }
+          },
+          "profile": {
+            "type": "string",
+            "enum": [
+              "chill",
+              "assertive"
+            ]
+          }
+        }
+      },
+      "WaitlistRequest": {
+        "type": "object",
+        "required": [
+          "email"
+        ],
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "name": {
+            "type": "string"
+          },
+          "organization": {
+            "type": "string"
+          },
+          "useCase": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          }
+        }
+      },
+      "ComplianceGateRequest": {
+        "type": "object",
+        "properties": {
+          "reviewId": {
+            "type": "string"
+          },
+          "findings": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            }
+          },
+          "riskScore": {
+            "type": "number"
+          },
+          "policy": {
+            "type": "object",
+            "properties": {
+              "profile": {
+                "type": "string",
+                "enum": [
+                  "soc2",
+                  "pci-dss",
+                  "hipaa",
+                  "standard"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "paths": {
+    "/cli/managed/developer-audit": {
+      "post": {
+        "operationId": "collectDeveloperAudit",
+        "tags": [
+          "developer-intelligence"
+        ],
+        "summary": "Collect and save a paid repository work audit",
+        "description": "Current membership, paid entitlement and repository access are rechecked before returning observations. No scalar developer grade or causal AI speedup is asserted.",
+        "security": [
+          {
+            "managedSession": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeveloperAuditRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Versioned report with source coverage, missing evidence and immutable snapshot reference.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Explicit authentication, paid access, source authorization, capacity or collection blocker."
+          }
+        }
+      }
+    },
+    "/cli/managed/developer-identity": {
+      "post": {
+        "operationId": "currentDeveloperIdentity",
+        "tags": [
+          "developer-intelligence"
+        ],
+        "summary": "Read the current verified GitHub identity and authorized source inventory",
+        "description": "Repository access and the GitHub identity are freshly verified and rechecked. No provider key or session token is returned; identity does not prove execution or authorship.",
+        "security": [
+          {
+            "managedSession": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ManagedDeveloperIdentityRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Current verified identity and authorized repositories.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ManagedDeveloperIdentity"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Explicit account, GitHub identity or source authorization blocker."
+          }
+        }
+      }
+    },
+    "/cli/managed/developer-evidence": {
+      "post": {
+        "operationId": "submitDeveloperEvidence",
+        "tags": [
+          "developer-intelligence"
+        ],
+        "summary": "Admit revision-linked declarations from the authenticated GitHub user",
+        "description": "The submitting identity is authenticated independently; execution, activity category and contribution assertions remain caller reports.",
+        "security": [
+          {
+            "managedSession": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DeveloperEvidenceRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Accepted and duplicate span counts.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Explicit identity, repository, paid access or evidence validation blocker."
+          }
+        }
+      }
+    },
+    "/cli/managed/finops": {
+      "post": {
+        "operationId": "providerCostEvidence",
+        "tags": [
+          "developer-intelligence"
+        ],
+        "summary": "Read cost evidence or submit administrator rate and invoice declarations",
+        "description": "Fresh administrator permissions and paid access are required. Token estimates, provider-reported costs, operator invoice declarations and independently verified billed cost are separate fields.",
+        "security": [
+          {
+            "managedSession": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/FinOpsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Server report or declaration receipt. Unknown costs remain null.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Explicit permission, paid access, source or declaration validation blocker."
+          }
+        }
+      }
+    },
+    "/cli/managed/audit-snapshots": {
+      "post": {
+        "operationId": "managedAuditSnapshots",
+        "tags": [
+          "developer-intelligence"
+        ],
+        "summary": "List or reopen retained immutable repository audit snapshots",
+        "description": "Current paid and repository access are required for every read. Observations were collected at the recorded time; they do not reconstruct past period-end state.",
+        "security": [
+          {
+            "managedSession": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuditSnapshotsRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Snapshot list or digest-verified immutable envelope.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Explicit authorization, expiry, missing snapshot or integrity blocker."
+          }
+        }
+      }
+    },
+    "/cli/managed/audit-context": {
+      "post": {
+        "operationId": "declareDeveloperProjectContext",
+        "tags": [
+          "developer-intelligence"
+        ],
+        "summary": "Declare or correct dated context for a contributor in a saved report",
+        "description": "Requires current paid access, repository authorization and administrator permission. Joining dates, roles, task families and availability remain organization declarations.",
+        "security": [
+          {
+            "managedSession": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AuditContextRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Immutable declaration or correction receipt.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "Explicit authorization, contributor identity, correction or storage capacity blocker."
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "operationId": "getHealth",
+        "summary": "Check server health and active storage backend",
+        "responses": {
+          "200": {
+            "description": "Server health status"
+          }
+        }
+      }
+    },
+    "/v1/capabilities": {
+      "get": {
+        "operationId": "getCapabilities",
+        "summary": "List all autonomous review, agentic, and compliance capabilities",
+        "responses": {
+          "200": {
+            "description": "Capabilities catalog"
+          }
+        }
+      }
+    },
+    "/v1/waitlist": {
+      "post": {
+        "operationId": "registerWaitlist",
+        "summary": "Register an email on the invitation-only waitlist",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/WaitlistRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Waitlist entry created"
+          }
+        }
+      },
+      "get": {
+        "operationId": "listWaitlist",
+        "summary": "List invitation waitlist entries (JSON or CSV)",
+        "responses": {
+          "200": {
+            "description": "Waitlist entries"
+          }
+        }
+      }
+    },
+    "/v1/reviews": {
+      "post": {
+        "operationId": "createReview",
+        "summary": "Run the 5-stage deterministic + LLM code review pipeline",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Completed review result with findings, blast radius, and change stack"
+          }
+        }
+      }
+    },
+    "/v1/reviews/autofix": {
+      "post": {
+        "operationId": "buildAutofixBundle",
+        "summary": "Synthesize a conflict-free multi-file unified diff remediation bundle",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Remediation patch bundle"
+          }
+        }
+      }
+    },
+    "/v1/reviews/risk-radar": {
+      "post": {
+        "operationId": "computeRiskRadar",
+        "summary": "Compute the 6-axis PR Risk Radar score and grade",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "6-axis Risk Radar telemetry"
+          }
+        }
+      }
+    },
+    "/v1/supply-chain/analyze": {
+      "post": {
+        "operationId": "analyzeSupplyChain",
+        "summary": "Detect typosquatting, AI slopsquatting, and license compliance issues",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Supply-chain security audit"
+          }
+        }
+      }
+    },
+    "/v1/sbom": {
+      "post": {
+        "operationId": "generateSbom",
+        "summary": "Generate a CycloneDX 1.5 Software Bill of Materials (SBOM)",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "CycloneDX 1.5 SBOM JSON"
+          }
+        }
+      }
+    },
+    "/v1/analytics/roi": {
+      "get": {
+        "operationId": "getAnalyticsRoi",
+        "summary": "Compute engineering hours saved and prevented production outage ROI",
+        "responses": {
+          "200": {
+            "description": "ROI telemetry summary"
+          }
+        }
+      }
+    },
+    "/v1/analysis/contract-drift": {
+      "post": {
+        "operationId": "analyzeContractDrift",
+        "summary": "Detect breaking API symbol removals, signature narrowing, and destructive SQL migrations",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Contract drift report and SemVer recommendation"
+          }
+        }
+      }
+    },
+    "/v1/compliance/sarif": {
+      "post": {
+        "operationId": "exportSarif",
+        "summary": "Export review findings and fixes to OASIS SARIF 2.1.0 format",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "SARIF 2.1.0 JSON document"
+          }
+        }
+      }
+    },
+    "/v1/compliance/gate": {
+      "post": {
+        "operationId": "evaluateComplianceGate",
+        "summary": "Evaluate changes against SOC2, PCI-DSS, HIPAA, or Standard compliance gates",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ComplianceGateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Compliance gate verdict and SHA-256 attestation"
+          }
+        }
+      }
+    },
+    "/v1/analysis/split-pr": {
+      "post": {
+        "operationId": "planStackedPrSplit",
+        "summary": "Decompose a pull request into a topological stack of atomic sub-PRs",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Ordered stacked PR plan and git commands"
+          }
+        }
+      }
+    },
+    "/v1/analysis/perf-finops": {
+      "post": {
+        "operationId": "analyzePerfFinOps",
+        "summary": "Detect N+1 queries in loops, blocking sync I/O, and unbounded LLM FinOps hazards",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ReviewRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Performance and FinOps audit report"
+          }
+        }
+      }
+    },
+    "/v1/triage": {
+      "get": {
+        "operationId": "getTriageQueue",
+        "summary": "List prioritized cross-repository pull requests (P0-P3)",
+        "responses": {
+          "200": {
+            "description": "Triaged PR queue"
+          }
+        }
+      }
+    },
+    "/v1/tasks": {
+      "get": {
+        "operationId": "listCodingTasks",
+        "summary": "List autonomous coding tasks",
+        "responses": {
+          "200": {
+            "description": "Task list"
+          }
+        }
+      },
+      "post": {
+        "operationId": "createCodingTask",
+        "summary": "Create a planned autonomous coding task",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created coding task"
+          }
+        }
+      }
+    },
+    "/v1/saas/blueprint": {
+      "get": {
+        "operationId": "getSaasBlueprint",
+        "summary": "Retrieve the autonomous SaaS multi-surface adapter blueprint and pricing matrix",
+        "responses": {
+          "200": {
+            "description": "Autonomous SaaS blueprint"
+          }
+        }
+      }
+    },
+    "/v1/saas/surface-lease/issue": {
+      "post": {
+        "operationId": "issueSurfaceLease",
+        "summary": "Issue an anti-sharing cryptographic lease for a CLI, IDE, MCP, or SCM surface",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Issued surface lease token"
+          }
+        }
+      }
+    },
+    "/v1/saas/metering/reserve": {
+      "post": {
+        "operationId": "reserveMeteringQuota",
+        "summary": "Phase 1 of 3-phase idempotent metering: reserve seat and token quota before execution",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Metering reservation record"
+          }
+        }
+      }
+    },
+    "/v1/saas/metering/finalize": {
+      "post": {
+        "operationId": "finalizeMeteringQuota",
+        "summary": "Phase 2 of 3-phase idempotent metering: commit actual review and LLM usage",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Finalized metering settlement"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,917 @@
+{
+  "documents": [
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.analyze_contract_drift(body=...)",
+      "id": "operation:analyzeContractDrift",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "analyzeContractDrift",
+      "parameters": [],
+      "path": "/v1/analysis/contract-drift",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "Contract drift report and SemVer recommendation",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "analyze_contract_drift",
+      "search_text": "analyzeContractDrift POST /v1/analysis/contract-drift Detect breaking API symbol removals, signature narrowing, and destructive SQL migrations analyze_contract_drift write 200 apiKeyHeader bearerAuth",
+      "summary": "Detect breaking API symbol removals, signature narrowing, and destructive SQL migrations",
+      "text": "POST /v1/analysis/contract-drift\noperation_id: analyzeContractDrift\nsummary: Detect breaking API symbol removals, signature narrowing, and destructive SQL migrations\nsdk_method: analyze_contract_drift\naccess: write\nrequest: application/json\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.analyze_contract_drift(body=...)"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.analyze_perf_fin_ops(body=...)",
+      "id": "operation:analyzePerfFinOps",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "analyzePerfFinOps",
+      "parameters": [],
+      "path": "/v1/analysis/perf-finops",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "Performance and FinOps audit report",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "analyze_perf_fin_ops",
+      "search_text": "analyzePerfFinOps POST /v1/analysis/perf-finops Detect N+1 queries in loops, blocking sync I/O, and unbounded LLM FinOps hazards analyze_perf_fin_ops write 200 apiKeyHeader bearerAuth",
+      "summary": "Detect N+1 queries in loops, blocking sync I/O, and unbounded LLM FinOps hazards",
+      "text": "POST /v1/analysis/perf-finops\noperation_id: analyzePerfFinOps\nsummary: Detect N+1 queries in loops, blocking sync I/O, and unbounded LLM FinOps hazards\nsdk_method: analyze_perf_fin_ops\naccess: write\nrequest: application/json\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.analyze_perf_fin_ops(body=...)"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.analyze_supply_chain(body=...)",
+      "id": "operation:analyzeSupplyChain",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "analyzeSupplyChain",
+      "parameters": [],
+      "path": "/v1/supply-chain/analyze",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "Supply-chain security audit",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "analyze_supply_chain",
+      "search_text": "analyzeSupplyChain POST /v1/supply-chain/analyze Detect typosquatting, AI slopsquatting, and license compliance issues analyze_supply_chain write 200 apiKeyHeader bearerAuth",
+      "summary": "Detect typosquatting, AI slopsquatting, and license compliance issues",
+      "text": "POST /v1/supply-chain/analyze\noperation_id: analyzeSupplyChain\nsummary: Detect typosquatting, AI slopsquatting, and license compliance issues\nsdk_method: analyze_supply_chain\naccess: write\nrequest: application/json\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.analyze_supply_chain(body=...)"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.build_autofix_bundle(body=...)",
+      "id": "operation:buildAutofixBundle",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "buildAutofixBundle",
+      "parameters": [],
+      "path": "/v1/reviews/autofix",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "Remediation patch bundle",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "build_autofix_bundle",
+      "search_text": "buildAutofixBundle POST /v1/reviews/autofix Synthesize a conflict-free multi-file unified diff remediation bundle build_autofix_bundle write 200 apiKeyHeader bearerAuth",
+      "summary": "Synthesize a conflict-free multi-file unified diff remediation bundle",
+      "text": "POST /v1/reviews/autofix\noperation_id: buildAutofixBundle\nsummary: Synthesize a conflict-free multi-file unified diff remediation bundle\nsdk_method: build_autofix_bundle\naccess: write\nrequest: application/json\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.build_autofix_bundle(body=...)"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "managedSession",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.collect_developer_audit(body=...)",
+      "id": "operation:collectDeveloperAudit",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "collectDeveloperAudit",
+      "parameters": [],
+      "path": "/cli/managed/developer-audit",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "Versioned report with source coverage, missing evidence and immutable snapshot reference.",
+          "status_code": "200"
+        },
+        {
+          "description": "Explicit authentication, paid access, source authorization, capacity or collection blocker.",
+          "status_code": "default"
+        }
+      ],
+      "sdk_method": "collect_developer_audit",
+      "search_text": "collectDeveloperAudit POST /cli/managed/developer-audit Collect and save a paid repository work audit Current membership, paid entitlement and repository access are rechecked before returning observations. No scalar developer grade or causal AI speedup is asserted. collect_developer_audit write 200 default managedSession",
+      "summary": "Collect and save a paid repository work audit",
+      "text": "POST /cli/managed/developer-audit\noperation_id: collectDeveloperAudit\nsummary: Collect and save a paid repository work audit\ndescription: Current membership, paid entitlement and repository access are rechecked before returning observations. No scalar developer grade or causal AI speedup is asserted.\nsdk_method: collect_developer_audit\naccess: write\nrequest: application/json\nresponses: 200, default\nauth: managedSession\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.collect_developer_audit(body=...)"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.compute_risk_radar(body=...)",
+      "id": "operation:computeRiskRadar",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "computeRiskRadar",
+      "parameters": [],
+      "path": "/v1/reviews/risk-radar",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "6-axis Risk Radar telemetry",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "compute_risk_radar",
+      "search_text": "computeRiskRadar POST /v1/reviews/risk-radar Compute the 6-axis PR Risk Radar score and grade compute_risk_radar write 200 apiKeyHeader bearerAuth",
+      "summary": "Compute the 6-axis PR Risk Radar score and grade",
+      "text": "POST /v1/reviews/risk-radar\noperation_id: computeRiskRadar\nsummary: Compute the 6-axis PR Risk Radar score and grade\nsdk_method: compute_risk_radar\naccess: write\nrequest: application/json\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.compute_risk_radar(body=...)"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.create_coding_task(body=...)",
+      "id": "operation:createCodingTask",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "createCodingTask",
+      "parameters": [],
+      "path": "/v1/tasks",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "Created coding task",
+          "status_code": "201"
+        }
+      ],
+      "sdk_method": "create_coding_task",
+      "search_text": "createCodingTask POST /v1/tasks Create a planned autonomous coding task create_coding_task write 201 apiKeyHeader bearerAuth",
+      "summary": "Create a planned autonomous coding task",
+      "text": "POST /v1/tasks\noperation_id: createCodingTask\nsummary: Create a planned autonomous coding task\nsdk_method: create_coding_task\naccess: write\nrequest: application/json\nresponses: 201\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.create_coding_task(body=...)"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.create_review(body=...)",
+      "id": "operation:createReview",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "createReview",
+      "parameters": [],
+      "path": "/v1/reviews",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "Completed review result with findings, blast radius, and change stack",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "create_review",
+      "search_text": "createReview POST /v1/reviews Run the 5-stage deterministic + LLM code review pipeline create_review write 200 apiKeyHeader bearerAuth",
+      "summary": "Run the 5-stage deterministic + LLM code review pipeline",
+      "text": "POST /v1/reviews\noperation_id: createReview\nsummary: Run the 5-stage deterministic + LLM code review pipeline\nsdk_method: create_review\naccess: write\nrequest: application/json\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.create_review(body=...)"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "managedSession",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.current_developer_identity(body=...)",
+      "id": "operation:currentDeveloperIdentity",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "currentDeveloperIdentity",
+      "parameters": [],
+      "path": "/cli/managed/developer-identity",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "Current verified identity and authorized repositories.",
+          "status_code": "200"
+        },
+        {
+          "description": "Explicit account, GitHub identity or source authorization blocker.",
+          "status_code": "default"
+        }
+      ],
+      "sdk_method": "current_developer_identity",
+      "search_text": "currentDeveloperIdentity POST /cli/managed/developer-identity Read the current verified GitHub identity and authorized source inventory Repository access and the GitHub identity are freshly verified and rechecked. No provider key or session token is returned; identity does not prove execution or authorship. current_developer_identity write 200 default managedSession",
+      "summary": "Read the current verified GitHub identity and authorized source inventory",
+      "text": "POST /cli/managed/developer-identity\noperation_id: currentDeveloperIdentity\nsummary: Read the current verified GitHub identity and authorized source inventory\ndescription: Repository access and the GitHub identity are freshly verified and rechecked. No provider key or session token is returned; identity does not prove execution or authorship.\nsdk_method: current_developer_identity\naccess: write\nrequest: application/json\nresponses: 200, default\nauth: managedSession\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.current_developer_identity(body=...)"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "managedSession",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.declare_developer_project_context(body=...)",
+      "id": "operation:declareDeveloperProjectContext",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "declareDeveloperProjectContext",
+      "parameters": [],
+      "path": "/cli/managed/audit-context",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "Immutable declaration or correction receipt.",
+          "status_code": "200"
+        },
+        {
+          "description": "Explicit authorization, contributor identity, correction or storage capacity blocker.",
+          "status_code": "default"
+        }
+      ],
+      "sdk_method": "declare_developer_project_context",
+      "search_text": "declareDeveloperProjectContext POST /cli/managed/audit-context Declare or correct dated context for a contributor in a saved report Requires current paid access, repository authorization and administrator permission. Joining dates, roles, task families and availability remain organization declarations. declare_developer_project_context write 200 default managedSession",
+      "summary": "Declare or correct dated context for a contributor in a saved report",
+      "text": "POST /cli/managed/audit-context\noperation_id: declareDeveloperProjectContext\nsummary: Declare or correct dated context for a contributor in a saved report\ndescription: Requires current paid access, repository authorization and administrator permission. Joining dates, roles, task families and availability remain organization declarations.\nsdk_method: declare_developer_project_context\naccess: write\nrequest: application/json\nresponses: 200, default\nauth: managedSession\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.declare_developer_project_context(body=...)"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.evaluate_compliance_gate(body=...)",
+      "id": "operation:evaluateComplianceGate",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "evaluateComplianceGate",
+      "parameters": [],
+      "path": "/v1/compliance/gate",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "Compliance gate verdict and SHA-256 attestation",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "evaluate_compliance_gate",
+      "search_text": "evaluateComplianceGate POST /v1/compliance/gate Evaluate changes against SOC2, PCI-DSS, HIPAA, or Standard compliance gates evaluate_compliance_gate write 200 apiKeyHeader bearerAuth",
+      "summary": "Evaluate changes against SOC2, PCI-DSS, HIPAA, or Standard compliance gates",
+      "text": "POST /v1/compliance/gate\noperation_id: evaluateComplianceGate\nsummary: Evaluate changes against SOC2, PCI-DSS, HIPAA, or Standard compliance gates\nsdk_method: evaluate_compliance_gate\naccess: write\nrequest: application/json\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.evaluate_compliance_gate(body=...)"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.export_sarif(body=...)",
+      "id": "operation:exportSarif",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "exportSarif",
+      "parameters": [],
+      "path": "/v1/compliance/sarif",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "SARIF 2.1.0 JSON document",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "export_sarif",
+      "search_text": "exportSarif POST /v1/compliance/sarif Export review findings and fixes to OASIS SARIF 2.1.0 format export_sarif write 200 apiKeyHeader bearerAuth",
+      "summary": "Export review findings and fixes to OASIS SARIF 2.1.0 format",
+      "text": "POST /v1/compliance/sarif\noperation_id: exportSarif\nsummary: Export review findings and fixes to OASIS SARIF 2.1.0 format\nsdk_method: export_sarif\naccess: write\nrequest: application/json\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.export_sarif(body=...)"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.finalize_metering_quota(body=...)",
+      "id": "operation:finalizeMeteringQuota",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "finalizeMeteringQuota",
+      "parameters": [],
+      "path": "/v1/saas/metering/finalize",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "Finalized metering settlement",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "finalize_metering_quota",
+      "search_text": "finalizeMeteringQuota POST /v1/saas/metering/finalize Phase 2 of 3-phase idempotent metering: commit actual review and LLM usage finalize_metering_quota write 200 apiKeyHeader bearerAuth",
+      "summary": "Phase 2 of 3-phase idempotent metering: commit actual review and LLM usage",
+      "text": "POST /v1/saas/metering/finalize\noperation_id: finalizeMeteringQuota\nsummary: Phase 2 of 3-phase idempotent metering: commit actual review and LLM usage\nsdk_method: finalize_metering_quota\naccess: write\nrequest: application/json\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.finalize_metering_quota(body=...)"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.generate_sbom(body=...)",
+      "id": "operation:generateSbom",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "generateSbom",
+      "parameters": [],
+      "path": "/v1/sbom",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "CycloneDX 1.5 SBOM JSON",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "generate_sbom",
+      "search_text": "generateSbom POST /v1/sbom Generate a CycloneDX 1.5 Software Bill of Materials (SBOM) generate_sbom write 200 apiKeyHeader bearerAuth",
+      "summary": "Generate a CycloneDX 1.5 Software Bill of Materials (SBOM)",
+      "text": "POST /v1/sbom\noperation_id: generateSbom\nsummary: Generate a CycloneDX 1.5 Software Bill of Materials (SBOM)\nsdk_method: generate_sbom\naccess: write\nrequest: application/json\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.generate_sbom(body=...)"
+    },
+    {
+      "access": "read-only",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.get_analytics_roi()",
+      "id": "operation:getAnalyticsRoi",
+      "kind": "operation",
+      "method": "GET",
+      "operation_id": "getAnalyticsRoi",
+      "parameters": [],
+      "path": "/v1/analytics/roi",
+      "request_media": [],
+      "responses": [
+        {
+          "description": "ROI telemetry summary",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "get_analytics_roi",
+      "search_text": "getAnalyticsRoi GET /v1/analytics/roi Compute engineering hours saved and prevented production outage ROI get_analytics_roi read-only 200 apiKeyHeader bearerAuth",
+      "summary": "Compute engineering hours saved and prevented production outage ROI",
+      "text": "GET /v1/analytics/roi\noperation_id: getAnalyticsRoi\nsummary: Compute engineering hours saved and prevented production outage ROI\nsdk_method: get_analytics_roi\naccess: read-only\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.get_analytics_roi()"
+    },
+    {
+      "access": "read-only",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.get_capabilities()",
+      "id": "operation:getCapabilities",
+      "kind": "operation",
+      "method": "GET",
+      "operation_id": "getCapabilities",
+      "parameters": [],
+      "path": "/v1/capabilities",
+      "request_media": [],
+      "responses": [
+        {
+          "description": "Capabilities catalog",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "get_capabilities",
+      "search_text": "getCapabilities GET /v1/capabilities List all autonomous review, agentic, and compliance capabilities get_capabilities read-only 200 apiKeyHeader bearerAuth",
+      "summary": "List all autonomous review, agentic, and compliance capabilities",
+      "text": "GET /v1/capabilities\noperation_id: getCapabilities\nsummary: List all autonomous review, agentic, and compliance capabilities\nsdk_method: get_capabilities\naccess: read-only\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.get_capabilities()"
+    },
+    {
+      "access": "read-only",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.get_health()",
+      "id": "operation:getHealth",
+      "kind": "operation",
+      "method": "GET",
+      "operation_id": "getHealth",
+      "parameters": [],
+      "path": "/health",
+      "request_media": [],
+      "responses": [
+        {
+          "description": "Server health status",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "get_health",
+      "search_text": "getHealth GET /health Check server health and active storage backend get_health read-only 200 apiKeyHeader bearerAuth",
+      "summary": "Check server health and active storage backend",
+      "text": "GET /health\noperation_id: getHealth\nsummary: Check server health and active storage backend\nsdk_method: get_health\naccess: read-only\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.get_health()"
+    },
+    {
+      "access": "read-only",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.get_saas_blueprint()",
+      "id": "operation:getSaasBlueprint",
+      "kind": "operation",
+      "method": "GET",
+      "operation_id": "getSaasBlueprint",
+      "parameters": [],
+      "path": "/v1/saas/blueprint",
+      "request_media": [],
+      "responses": [
+        {
+          "description": "Autonomous SaaS blueprint",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "get_saas_blueprint",
+      "search_text": "getSaasBlueprint GET /v1/saas/blueprint Retrieve the autonomous SaaS multi-surface adapter blueprint and pricing matrix get_saas_blueprint read-only 200 apiKeyHeader bearerAuth",
+      "summary": "Retrieve the autonomous SaaS multi-surface adapter blueprint and pricing matrix",
+      "text": "GET /v1/saas/blueprint\noperation_id: getSaasBlueprint\nsummary: Retrieve the autonomous SaaS multi-surface adapter blueprint and pricing matrix\nsdk_method: get_saas_blueprint\naccess: read-only\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.get_saas_blueprint()"
+    },
+    {
+      "access": "read-only",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.get_triage_queue()",
+      "id": "operation:getTriageQueue",
+      "kind": "operation",
+      "method": "GET",
+      "operation_id": "getTriageQueue",
+      "parameters": [],
+      "path": "/v1/triage",
+      "request_media": [],
+      "responses": [
+        {
+          "description": "Triaged PR queue",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "get_triage_queue",
+      "search_text": "getTriageQueue GET /v1/triage List prioritized cross-repository pull requests (P0-P3) get_triage_queue read-only 200 apiKeyHeader bearerAuth",
+      "summary": "List prioritized cross-repository pull requests (P0-P3)",
+      "text": "GET /v1/triage\noperation_id: getTriageQueue\nsummary: List prioritized cross-repository pull requests (P0-P3)\nsdk_method: get_triage_queue\naccess: read-only\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.get_triage_queue()"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.issue_surface_lease(body=...)",
+      "id": "operation:issueSurfaceLease",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "issueSurfaceLease",
+      "parameters": [],
+      "path": "/v1/saas/surface-lease/issue",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "Issued surface lease token",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "issue_surface_lease",
+      "search_text": "issueSurfaceLease POST /v1/saas/surface-lease/issue Issue an anti-sharing cryptographic lease for a CLI, IDE, MCP, or SCM surface issue_surface_lease write 200 apiKeyHeader bearerAuth",
+      "summary": "Issue an anti-sharing cryptographic lease for a CLI, IDE, MCP, or SCM surface",
+      "text": "POST /v1/saas/surface-lease/issue\noperation_id: issueSurfaceLease\nsummary: Issue an anti-sharing cryptographic lease for a CLI, IDE, MCP, or SCM surface\nsdk_method: issue_surface_lease\naccess: write\nrequest: application/json\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.issue_surface_lease(body=...)"
+    },
+    {
+      "access": "read-only",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.list_coding_tasks()",
+      "id": "operation:listCodingTasks",
+      "kind": "operation",
+      "method": "GET",
+      "operation_id": "listCodingTasks",
+      "parameters": [],
+      "path": "/v1/tasks",
+      "request_media": [],
+      "responses": [
+        {
+          "description": "Task list",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "list_coding_tasks",
+      "search_text": "listCodingTasks GET /v1/tasks List autonomous coding tasks list_coding_tasks read-only 200 apiKeyHeader bearerAuth",
+      "summary": "List autonomous coding tasks",
+      "text": "GET /v1/tasks\noperation_id: listCodingTasks\nsummary: List autonomous coding tasks\nsdk_method: list_coding_tasks\naccess: read-only\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.list_coding_tasks()"
+    },
+    {
+      "access": "read-only",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.list_waitlist()",
+      "id": "operation:listWaitlist",
+      "kind": "operation",
+      "method": "GET",
+      "operation_id": "listWaitlist",
+      "parameters": [],
+      "path": "/v1/waitlist",
+      "request_media": [],
+      "responses": [
+        {
+          "description": "Waitlist entries",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "list_waitlist",
+      "search_text": "listWaitlist GET /v1/waitlist List invitation waitlist entries (JSON or CSV) list_waitlist read-only 200 apiKeyHeader bearerAuth",
+      "summary": "List invitation waitlist entries (JSON or CSV)",
+      "text": "GET /v1/waitlist\noperation_id: listWaitlist\nsummary: List invitation waitlist entries (JSON or CSV)\nsdk_method: list_waitlist\naccess: read-only\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.list_waitlist()"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "managedSession",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.managed_audit_snapshots(body=...)",
+      "id": "operation:managedAuditSnapshots",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "managedAuditSnapshots",
+      "parameters": [],
+      "path": "/cli/managed/audit-snapshots",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "Snapshot list or digest-verified immutable envelope.",
+          "status_code": "200"
+        },
+        {
+          "description": "Explicit authorization, expiry, missing snapshot or integrity blocker.",
+          "status_code": "default"
+        }
+      ],
+      "sdk_method": "managed_audit_snapshots",
+      "search_text": "managedAuditSnapshots POST /cli/managed/audit-snapshots List or reopen retained immutable repository audit snapshots Current paid and repository access are required for every read. Observations were collected at the recorded time; they do not reconstruct past period-end state. managed_audit_snapshots write 200 default managedSession",
+      "summary": "List or reopen retained immutable repository audit snapshots",
+      "text": "POST /cli/managed/audit-snapshots\noperation_id: managedAuditSnapshots\nsummary: List or reopen retained immutable repository audit snapshots\ndescription: Current paid and repository access are required for every read. Observations were collected at the recorded time; they do not reconstruct past period-end state.\nsdk_method: managed_audit_snapshots\naccess: write\nrequest: application/json\nresponses: 200, default\nauth: managedSession\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.managed_audit_snapshots(body=...)"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.plan_stacked_pr_split(body=...)",
+      "id": "operation:planStackedPrSplit",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "planStackedPrSplit",
+      "parameters": [],
+      "path": "/v1/analysis/split-pr",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "Ordered stacked PR plan and git commands",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "plan_stacked_pr_split",
+      "search_text": "planStackedPrSplit POST /v1/analysis/split-pr Decompose a pull request into a topological stack of atomic sub-PRs plan_stacked_pr_split write 200 apiKeyHeader bearerAuth",
+      "summary": "Decompose a pull request into a topological stack of atomic sub-PRs",
+      "text": "POST /v1/analysis/split-pr\noperation_id: planStackedPrSplit\nsummary: Decompose a pull request into a topological stack of atomic sub-PRs\nsdk_method: plan_stacked_pr_split\naccess: write\nrequest: application/json\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.plan_stacked_pr_split(body=...)"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "managedSession",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.provider_cost_evidence(body=...)",
+      "id": "operation:providerCostEvidence",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "providerCostEvidence",
+      "parameters": [],
+      "path": "/cli/managed/finops",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "Server report or declaration receipt. Unknown costs remain null.",
+          "status_code": "200"
+        },
+        {
+          "description": "Explicit permission, paid access, source or declaration validation blocker.",
+          "status_code": "default"
+        }
+      ],
+      "sdk_method": "provider_cost_evidence",
+      "search_text": "providerCostEvidence POST /cli/managed/finops Read cost evidence or submit administrator rate and invoice declarations Fresh administrator permissions and paid access are required. Token estimates, provider-reported costs, operator invoice declarations and independently verified billed cost are separate fields. provider_cost_evidence write 200 default managedSession",
+      "summary": "Read cost evidence or submit administrator rate and invoice declarations",
+      "text": "POST /cli/managed/finops\noperation_id: providerCostEvidence\nsummary: Read cost evidence or submit administrator rate and invoice declarations\ndescription: Fresh administrator permissions and paid access are required. Token estimates, provider-reported costs, operator invoice declarations and independently verified billed cost are separate fields.\nsdk_method: provider_cost_evidence\naccess: write\nrequest: application/json\nresponses: 200, default\nauth: managedSession\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.provider_cost_evidence(body=...)"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.register_waitlist(body=...)",
+      "id": "operation:registerWaitlist",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "registerWaitlist",
+      "parameters": [],
+      "path": "/v1/waitlist",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "Waitlist entry created",
+          "status_code": "201"
+        }
+      ],
+      "sdk_method": "register_waitlist",
+      "search_text": "registerWaitlist POST /v1/waitlist Register an email on the invitation-only waitlist register_waitlist write 201 apiKeyHeader bearerAuth",
+      "summary": "Register an email on the invitation-only waitlist",
+      "text": "POST /v1/waitlist\noperation_id: registerWaitlist\nsummary: Register an email on the invitation-only waitlist\nsdk_method: register_waitlist\naccess: write\nrequest: application/json\nresponses: 201\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.register_waitlist(body=...)"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "apiKeyHeader",
+          "type": "apiKey"
+        },
+        {
+          "name": "bearerAuth",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.reserve_metering_quota(body=...)",
+      "id": "operation:reserveMeteringQuota",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "reserveMeteringQuota",
+      "parameters": [],
+      "path": "/v1/saas/metering/reserve",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "Metering reservation record",
+          "status_code": "200"
+        }
+      ],
+      "sdk_method": "reserve_metering_quota",
+      "search_text": "reserveMeteringQuota POST /v1/saas/metering/reserve Phase 1 of 3-phase idempotent metering: reserve seat and token quota before execution reserve_metering_quota write 200 apiKeyHeader bearerAuth",
+      "summary": "Phase 1 of 3-phase idempotent metering: reserve seat and token quota before execution",
+      "text": "POST /v1/saas/metering/reserve\noperation_id: reserveMeteringQuota\nsummary: Phase 1 of 3-phase idempotent metering: reserve seat and token quota before execution\nsdk_method: reserve_metering_quota\naccess: write\nrequest: application/json\nresponses: 200\nauth: apiKeyHeader, bearerAuth\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.reserve_metering_quota(body=...)"
+    },
+    {
+      "access": "write",
+      "auth": [
+        {
+          "name": "managedSession",
+          "type": "http"
+        }
+      ],
+      "example": "from omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.submit_developer_evidence(body=...)",
+      "id": "operation:submitDeveloperEvidence",
+      "kind": "operation",
+      "method": "POST",
+      "operation_id": "submitDeveloperEvidence",
+      "parameters": [],
+      "path": "/cli/managed/developer-evidence",
+      "request_media": [
+        "application/json"
+      ],
+      "responses": [
+        {
+          "description": "Accepted and duplicate span counts.",
+          "status_code": "200"
+        },
+        {
+          "description": "Explicit identity, repository, paid access or evidence validation blocker.",
+          "status_code": "default"
+        }
+      ],
+      "sdk_method": "submit_developer_evidence",
+      "search_text": "submitDeveloperEvidence POST /cli/managed/developer-evidence Admit revision-linked declarations from the authenticated GitHub user The submitting identity is authenticated independently; execution, activity category and contribution assertions remain caller reports. submit_developer_evidence write 200 default managedSession",
+      "summary": "Admit revision-linked declarations from the authenticated GitHub user",
+      "text": "POST /cli/managed/developer-evidence\noperation_id: submitDeveloperEvidence\nsummary: Admit revision-linked declarations from the authenticated GitHub user\ndescription: The submitting identity is authenticated independently; execution, activity category and contribution assertions remain caller reports.\nsdk_method: submit_developer_evidence\naccess: write\nrequest: application/json\nresponses: 200, default\nauth: managedSession\nexample:\nfrom omniwrap_mcp_b06781a26c44_sdk import Client\nclient = Client(base_url=..., auth={...})\nresult = client.submit_developer_evidence(body=...)"
+    }
+  ],
+  "ranking": "deterministic-bm25-v1",
+  "schema": "omniwrap.mcp-docs/1",
+  "server_name": "codejackrabbit-python-sdk"
+}

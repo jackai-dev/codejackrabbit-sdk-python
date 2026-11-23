@@ -1,0 +1,694 @@
+{
+  "authentication": {
+    "details": [
+      {
+        "name": "apiKeyHeader",
+        "scheme": "header",
+        "type": "apiKey"
+      },
+      {
+        "name": "bearerAuth",
+        "scheme": "bearer",
+        "type": "http"
+      },
+      {
+        "name": "managedSession",
+        "scheme": "bearer",
+        "type": "http"
+      }
+    ],
+    "schemes": [
+      "header",
+      "bearer",
+      "bearer"
+    ]
+  },
+  "capabilities": {
+    "pushNotifications": false,
+    "stateTransitionHistory": true,
+    "streaming": true
+  },
+  "defaultInputModes": [
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "application/json"
+  ],
+  "description": "Official OpenAPI 3.1.0 specification for CodeJackRabbit (`cjr`) -- 5-stage autonomous code review, blast-radius graph, multi-file autofix, supply-chain SBOM, contract drift, SARIF 2.1.0 compliance gates, stacked PR splitting, FinOps guard, and @jackai/app-sdk multi-surface SaaS metering.",
+  "name": "CodeJackRabbit",
+  "schemaVersion": "1.0.0",
+  "skills": [
+    {
+      "description": "Detect breaking API symbol removals, signature narrowing, and destructive SQL migrations",
+      "effect": "write",
+      "id": "analyzeContractDrift",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Detect breaking API symbol removals, signature narrowing, and destructive SQL migrations",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "9c92e7f0bd5d7fd776fde5d5392793fa819d799fdd4f8e1e7a7b0815dda3e2bf",
+      "path": "/v1/analysis/contract-drift",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "Detect N+1 queries in loops, blocking sync I/O, and unbounded LLM FinOps hazards",
+      "effect": "write",
+      "id": "analyzePerfFinOps",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Detect N+1 queries in loops, blocking sync I/O, and unbounded LLM FinOps hazards",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "eeaa8bd4837b62f111abd9286ba26b5b579bbcea1f2e65ee24ff5033e7ae4019",
+      "path": "/v1/analysis/perf-finops",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "Detect typosquatting, AI slopsquatting, and license compliance issues",
+      "effect": "write",
+      "id": "analyzeSupplyChain",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Detect typosquatting, AI slopsquatting, and license compliance issues",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "5018beb26db64f0a8254249ea8519ae143600abd1037e8b6dc038793ff0ddc10",
+      "path": "/v1/supply-chain/analyze",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "Synthesize a conflict-free multi-file unified diff remediation bundle",
+      "effect": "write",
+      "id": "buildAutofixBundle",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Synthesize a conflict-free multi-file unified diff remediation bundle",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "4817f479518e8fde4214d1f7ad3251c8b5a658c70ec53d0371caf48c2db3752c",
+      "path": "/v1/reviews/autofix",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "Current membership, paid entitlement and repository access are rechecked before returning observations. No scalar developer grade or causal AI speedup is asserted.",
+      "effect": "write",
+      "id": "collectDeveloperAudit",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Collect and save a paid repository work audit",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "6c860c4bb77b415d183b0009ee9754eb95ebe231da7982ecc1e36be634328b19",
+      "path": "/cli/managed/developer-audit",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST",
+        "developer-intelligence"
+      ]
+    },
+    {
+      "description": "Compute the 6-axis PR Risk Radar score and grade",
+      "effect": "write",
+      "id": "computeRiskRadar",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Compute the 6-axis PR Risk Radar score and grade",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "cd131edc8b601e7df6a679bf1f967fc2de683c5f341ff887d743af99028337f7",
+      "path": "/v1/reviews/risk-radar",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "Create a planned autonomous coding task",
+      "effect": "write",
+      "id": "createCodingTask",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Create a planned autonomous coding task",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "2b27588539d1f68501bb058bb9fefd6ae7568462fe3b1480a6f044a761c2b603",
+      "path": "/v1/tasks",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "Run the 5-stage deterministic + LLM code review pipeline",
+      "effect": "write",
+      "id": "createReview",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Run the 5-stage deterministic + LLM code review pipeline",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "ef700e9149f9f64c267fadd603f38ca783d2c4e2ba538e100a448054c373fef6",
+      "path": "/v1/reviews",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "Repository access and the GitHub identity are freshly verified and rechecked. No provider key or session token is returned; identity does not prove execution or authorship.",
+      "effect": "write",
+      "id": "currentDeveloperIdentity",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Read the current verified GitHub identity and authorized source inventory",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "24e6f1437c4da2147075b5b01504d5b71d73cd57f7e38d251f020471b3a711b1",
+      "path": "/cli/managed/developer-identity",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST",
+        "developer-intelligence"
+      ]
+    },
+    {
+      "description": "Requires current paid access, repository authorization and administrator permission. Joining dates, roles, task families and availability remain organization declarations.",
+      "effect": "write",
+      "id": "declareDeveloperProjectContext",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Declare or correct dated context for a contributor in a saved report",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "a14e608103356077ed635685c5ed552a19ed350fa7a72fda48e196ed77bc9af0",
+      "path": "/cli/managed/audit-context",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST",
+        "developer-intelligence"
+      ]
+    },
+    {
+      "description": "Evaluate changes against SOC2, PCI-DSS, HIPAA, or Standard compliance gates",
+      "effect": "write",
+      "id": "evaluateComplianceGate",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Evaluate changes against SOC2, PCI-DSS, HIPAA, or Standard compliance gates",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "c1d20c89b281192dbcac7a6fcfab876638d030ce7120e9ef2dfb06b8daf17560",
+      "path": "/v1/compliance/gate",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "Export review findings and fixes to OASIS SARIF 2.1.0 format",
+      "effect": "write",
+      "id": "exportSarif",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Export review findings and fixes to OASIS SARIF 2.1.0 format",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "7250386341ca93fb7c3691efc938d4f61c8626853304b223cf5e0fef4fb8edaa",
+      "path": "/v1/compliance/sarif",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "Phase 2 of 3-phase idempotent metering: commit actual review and LLM usage",
+      "effect": "write",
+      "id": "finalizeMeteringQuota",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Phase 2 of 3-phase idempotent metering: commit actual review and LLM usage",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "8b424d97f030a17980fac9b5cc8da4f3ec9fbae125f92afc7a1e0c724b5e3eb6",
+      "path": "/v1/saas/metering/finalize",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "Generate a CycloneDX 1.5 Software Bill of Materials (SBOM)",
+      "effect": "write",
+      "id": "generateSbom",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Generate a CycloneDX 1.5 Software Bill of Materials (SBOM)",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "556cddf0d612e76ad18fc004fb9b4e37189a8678c8016ba0958025ae33b3357d",
+      "path": "/v1/sbom",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "Compute engineering hours saved and prevented production outage ROI",
+      "effect": "read",
+      "id": "getAnalyticsRoi",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "c7c69ffea7e3e6af99994c9347a2f29c4a558bdf8854ac3b61df817cbadcd1f7",
+      "method": "GET",
+      "name": "Compute engineering hours saved and prevented production outage ROI",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "d8115981fe1204fc4e8c02cbb671ae1532aee0ff6d7d378392e89d58bab94051",
+      "path": "/v1/analytics/roi",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET"
+      ]
+    },
+    {
+      "description": "List all autonomous review, agentic, and compliance capabilities",
+      "effect": "read",
+      "id": "getCapabilities",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "c7c69ffea7e3e6af99994c9347a2f29c4a558bdf8854ac3b61df817cbadcd1f7",
+      "method": "GET",
+      "name": "List all autonomous review, agentic, and compliance capabilities",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "bcfc3c0bac351ba7e879bee7a5741fba39e2a4bb966a3a11e717400a3c737eaf",
+      "path": "/v1/capabilities",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET"
+      ]
+    },
+    {
+      "description": "Check server health and active storage backend",
+      "effect": "read",
+      "id": "getHealth",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "c7c69ffea7e3e6af99994c9347a2f29c4a558bdf8854ac3b61df817cbadcd1f7",
+      "method": "GET",
+      "name": "Check server health and active storage backend",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "5033b2048f5123296bc0878f3bc8955c866bade5fdf09ac9e352a679bf96aa7f",
+      "path": "/health",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET"
+      ]
+    },
+    {
+      "description": "Retrieve the autonomous SaaS multi-surface adapter blueprint and pricing matrix",
+      "effect": "read",
+      "id": "getSaasBlueprint",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "c7c69ffea7e3e6af99994c9347a2f29c4a558bdf8854ac3b61df817cbadcd1f7",
+      "method": "GET",
+      "name": "Retrieve the autonomous SaaS multi-surface adapter blueprint and pricing matrix",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "820d936f3d1d40f29eb667b8b5bfbbf46b07e963d2ff19da1a7385f3ef0ae0b3",
+      "path": "/v1/saas/blueprint",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET"
+      ]
+    },
+    {
+      "description": "List prioritized cross-repository pull requests (P0-P3)",
+      "effect": "read",
+      "id": "getTriageQueue",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "c7c69ffea7e3e6af99994c9347a2f29c4a558bdf8854ac3b61df817cbadcd1f7",
+      "method": "GET",
+      "name": "List prioritized cross-repository pull requests (P0-P3)",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "d563dea29b8ef9bdd8b0ec3470f8ed0afe1d359b5f17e66e8a5d3960137e0c5c",
+      "path": "/v1/triage",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET"
+      ]
+    },
+    {
+      "description": "Issue an anti-sharing cryptographic lease for a CLI, IDE, MCP, or SCM surface",
+      "effect": "write",
+      "id": "issueSurfaceLease",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Issue an anti-sharing cryptographic lease for a CLI, IDE, MCP, or SCM surface",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "6be33f3e5c74c1bf2160d67159ef78820a9e8f4b9524b365e5e5cc47d8275e11",
+      "path": "/v1/saas/surface-lease/issue",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "List autonomous coding tasks",
+      "effect": "read",
+      "id": "listCodingTasks",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "c7c69ffea7e3e6af99994c9347a2f29c4a558bdf8854ac3b61df817cbadcd1f7",
+      "method": "GET",
+      "name": "List autonomous coding tasks",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "f268d8ec079d4e14c80f2ef015766c85885813b8b60a6d8f73ba2821938aacc0",
+      "path": "/v1/tasks",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET"
+      ]
+    },
+    {
+      "description": "List invitation waitlist entries (JSON or CSV)",
+      "effect": "read",
+      "id": "listWaitlist",
+      "idempotent": true,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "c7c69ffea7e3e6af99994c9347a2f29c4a558bdf8854ac3b61df817cbadcd1f7",
+      "method": "GET",
+      "name": "List invitation waitlist entries (JSON or CSV)",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "a61f7a8dff00fbd0556accfce62af9966e0e73edfca6b9627df63b59f55f9ed6",
+      "path": "/v1/waitlist",
+      "readOnly": true,
+      "tags": [
+        "effect:read",
+        "idempotent",
+        "method:GET"
+      ]
+    },
+    {
+      "description": "Current paid and repository access are required for every read. Observations were collected at the recorded time; they do not reconstruct past period-end state.",
+      "effect": "write",
+      "id": "managedAuditSnapshots",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "List or reopen retained immutable repository audit snapshots",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "8b6d0e528ab931f00c2e79eec19081e65eee52f7247ca42337576722806d6996",
+      "path": "/cli/managed/audit-snapshots",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST",
+        "developer-intelligence"
+      ]
+    },
+    {
+      "description": "Decompose a pull request into a topological stack of atomic sub-PRs",
+      "effect": "write",
+      "id": "planStackedPrSplit",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Decompose a pull request into a topological stack of atomic sub-PRs",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "5a6f2780ec87fbe0fd7f6df58e77bf1e42f733aa1b4bb825dcb27c6fdfef9580",
+      "path": "/v1/analysis/split-pr",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "Fresh administrator permissions and paid access are required. Token estimates, provider-reported costs, operator invoice declarations and independently verified billed cost are separate fields.",
+      "effect": "write",
+      "id": "providerCostEvidence",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Read cost evidence or submit administrator rate and invoice declarations",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "616e8ecd13ab0777658665a3212ac73fae07b1abbdc1f0ce9c1b125d36e84e5c",
+      "path": "/cli/managed/finops",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST",
+        "developer-intelligence"
+      ]
+    },
+    {
+      "description": "Register an email on the invitation-only waitlist",
+      "effect": "write",
+      "id": "registerWaitlist",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Register an email on the invitation-only waitlist",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "d772fe38a7f48aa713a4beef870d06f0a8fe988fa0188dff05b5957e6ed2c2c5",
+      "path": "/v1/waitlist",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "Phase 1 of 3-phase idempotent metering: reserve seat and token quota before execution",
+      "effect": "write",
+      "id": "reserveMeteringQuota",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Phase 1 of 3-phase idempotent metering: reserve seat and token quota before execution",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "ee324658e24d2345ec53e79e837b1b05d342a2c751364fd57a603ef7cc86243f",
+      "path": "/v1/saas/metering/reserve",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST"
+      ]
+    },
+    {
+      "description": "The submitting identity is authenticated independently; execution, activity category and contribution assertions remain caller reports.",
+      "effect": "write",
+      "id": "submitDeveloperEvidence",
+      "idempotent": false,
+      "inputModes": [
+        "application/json"
+      ],
+      "inputSchemaDigest": "b1f38984e19088c47a5f387b4111ab7ef57eea03ab7271c338168e8225855314",
+      "method": "POST",
+      "name": "Admit revision-linked declarations from the authenticated GitHub user",
+      "outputModes": [
+        "application/json"
+      ],
+      "outputSchemaDigest": "ed9377a8269642d79ea37a7a17e00de6182dbe0be4d45b6b7dc500ab403f922d",
+      "path": "/cli/managed/developer-evidence",
+      "readOnly": false,
+      "tags": [
+        "effect:write",
+        "non-idempotent",
+        "method:POST",
+        "developer-intelligence"
+      ]
+    }
+  ],
+  "url": "https://api.codejackrabbit.com",
+  "version": "0.3.4"
+}

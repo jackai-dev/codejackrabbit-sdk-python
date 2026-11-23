@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "codejackrabbit-knowledge": {
+      "command": "python",
+      "args": [
+        "server.py"
+      ]
+    }
+  }
+}

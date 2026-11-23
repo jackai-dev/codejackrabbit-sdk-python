@@ -1,0 +1,1130 @@
+{
+  "$schema": "https://omniwrap.dev/schemas/semantic-agent-task-corpus/v1.json",
+  "contract_fingerprint": "b06781a26c4469e8f12830a04d455957bf620d42b9e1df155e93ee00f293d1c9",
+  "contract_title": "CodeJackRabbit",
+  "corpus_sha256": "64771862f9e1a5135e2f0f36dc95e2eb4d6ca1e675ccd6b248d72f2886d6d887",
+  "generation_profile": "semantic-retrieval-and-planning-v2",
+  "task_corpus_version": "1.0.0",
+  "tasks": [
+    {
+      "auth_ids": [
+        "apiKeyHeader"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/operation/analyzeContractDrift"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover the exact authentication scheme, location or flow, and required scopes.",
+      "kind": "authentication",
+      "operation_ids": [
+        "analyzeContractDrift"
+      ],
+      "query": "How is apiKeyHeader authentication applied to analyzeContractDrift? Cite exactly: operation:analyzeContractDrift, auth:apiKeyHeader",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "authentication-analyzecontractdrift-apikeyheader"
+    },
+    {
+      "auth_ids": [
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/analyzeContractDrift"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover the exact authentication scheme, location or flow, and required scopes.",
+      "kind": "authentication",
+      "operation_ids": [
+        "analyzeContractDrift"
+      ],
+      "query": "How is bearerAuth authentication applied to analyzeContractDrift? Cite exactly: operation:analyzeContractDrift, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "authentication-analyzecontractdrift-bearerauth"
+    },
+    {
+      "auth_ids": [
+        "managedSession"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/managedSession",
+        "omniwrap://semantic/operation/collectDeveloperAudit"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover the exact authentication scheme, location or flow, and required scopes.",
+      "kind": "authentication",
+      "operation_ids": [
+        "collectDeveloperAudit"
+      ],
+      "query": "How is managedSession authentication applied to collectDeveloperAudit? Cite exactly: operation:collectDeveloperAudit, auth:managedSession",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "authentication-collectdeveloperaudit-managedsession"
+    },
+    {
+      "auth_ids": [
+        "apiKeyHeader",
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/analyzeContractDrift",
+        "omniwrap://semantic/schema/ReviewRequest"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "analyzeContractDrift"
+      ],
+      "query": "Find the exact operation analyzeContractDrift (POST /v1/analysis/contract-drift) for Detect breaking API symbol removals, signature narrowing, and destructive SQL migrations. Cite exactly: operation:analyzeContractDrift, schema:ReviewRequest, auth:apiKeyHeader, auth:bearerAuth",
+      "schema_ids": [
+        "ReviewRequest"
+      ],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-analyzecontractdrift"
+    },
+    {
+      "auth_ids": [
+        "managedSession"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/managedSession",
+        "omniwrap://semantic/operation/collectDeveloperAudit",
+        "omniwrap://semantic/schema/DeveloperAuditRequest"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "collectDeveloperAudit"
+      ],
+      "query": "Find the exact operation collectDeveloperAudit (POST /cli/managed/developer-audit) for Collect and save a paid repository work audit. Cite exactly: operation:collectDeveloperAudit, schema:DeveloperAuditRequest, auth:managedSession",
+      "schema_ids": [
+        "DeveloperAuditRequest"
+      ],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-collectdeveloperaudit"
+    },
+    {
+      "auth_ids": [
+        "apiKeyHeader",
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/createCodingTask"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "createCodingTask"
+      ],
+      "query": "Find the exact operation createCodingTask (POST /v1/tasks) for Create a planned autonomous coding task. Cite exactly: operation:createCodingTask, auth:apiKeyHeader, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-createcodingtask"
+    },
+    {
+      "auth_ids": [
+        "managedSession"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/managedSession",
+        "omniwrap://semantic/operation/currentDeveloperIdentity",
+        "omniwrap://semantic/schema/ManagedDeveloperIdentity",
+        "omniwrap://semantic/schema/ManagedDeveloperIdentityRequest"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "currentDeveloperIdentity"
+      ],
+      "query": "Find the exact operation currentDeveloperIdentity (POST /cli/managed/developer-identity) for Read the current verified GitHub identity and authorized source inventory. Cite exactly: operation:currentDeveloperIdentity, schema:ManagedDeveloperIdentity, schema:ManagedDeveloperIdentityRequest, auth:managedSession",
+      "schema_ids": [
+        "ManagedDeveloperIdentity",
+        "ManagedDeveloperIdentityRequest"
+      ],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-currentdeveloperidentity"
+    },
+    {
+      "auth_ids": [
+        "apiKeyHeader",
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/evaluateComplianceGate",
+        "omniwrap://semantic/schema/ComplianceGateRequest"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "evaluateComplianceGate"
+      ],
+      "query": "Find the exact operation evaluateComplianceGate (POST /v1/compliance/gate) for Evaluate changes against SOC2, PCI-DSS, HIPAA, or Standard compliance gates. Cite exactly: operation:evaluateComplianceGate, schema:ComplianceGateRequest, auth:apiKeyHeader, auth:bearerAuth",
+      "schema_ids": [
+        "ComplianceGateRequest"
+      ],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-evaluatecompliancegate"
+    },
+    {
+      "auth_ids": [
+        "apiKeyHeader",
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/exportSarif"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "exportSarif"
+      ],
+      "query": "Find the exact operation exportSarif (POST /v1/compliance/sarif) for Export review findings and fixes to OASIS SARIF 2.1.0 format. Cite exactly: operation:exportSarif, auth:apiKeyHeader, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-exportsarif"
+    },
+    {
+      "auth_ids": [
+        "apiKeyHeader",
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/finalizeMeteringQuota"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "finalizeMeteringQuota"
+      ],
+      "query": "Find the exact operation finalizeMeteringQuota (POST /v1/saas/metering/finalize) for Phase 2 of 3-phase idempotent metering: commit actual review and LLM usage. Cite exactly: operation:finalizeMeteringQuota, auth:apiKeyHeader, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-finalizemeteringquota"
+    },
+    {
+      "auth_ids": [
+        "apiKeyHeader",
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/getAnalyticsRoi"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "getAnalyticsRoi"
+      ],
+      "query": "Find the exact operation getAnalyticsRoi (GET /v1/analytics/roi) for Compute engineering hours saved and prevented production outage ROI. Cite exactly: operation:getAnalyticsRoi, auth:apiKeyHeader, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-getanalyticsroi"
+    },
+    {
+      "auth_ids": [
+        "apiKeyHeader",
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/getSaasBlueprint"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "getSaasBlueprint"
+      ],
+      "query": "Find the exact operation getSaasBlueprint (GET /v1/saas/blueprint) for Retrieve the autonomous SaaS multi-surface adapter blueprint and pricing matrix. Cite exactly: operation:getSaasBlueprint, auth:apiKeyHeader, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-getsaasblueprint"
+    },
+    {
+      "auth_ids": [
+        "apiKeyHeader",
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/listCodingTasks"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "listCodingTasks"
+      ],
+      "query": "Find the exact operation listCodingTasks (GET /v1/tasks) for List autonomous coding tasks. Cite exactly: operation:listCodingTasks, auth:apiKeyHeader, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-listcodingtasks"
+    },
+    {
+      "auth_ids": [
+        "apiKeyHeader",
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/reserveMeteringQuota"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "reserveMeteringQuota"
+      ],
+      "query": "Find the exact operation reserveMeteringQuota (POST /v1/saas/metering/reserve) for Phase 1 of 3-phase idempotent metering: reserve seat and token quota before execution. Cite exactly: operation:reserveMeteringQuota, auth:apiKeyHeader, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-reservemeteringquota"
+    },
+    {
+      "auth_ids": [
+        "managedSession"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/managedSession",
+        "omniwrap://semantic/operation/submitDeveloperEvidence",
+        "omniwrap://semantic/schema/DeveloperEvidenceRequest"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Identify the operation without inventing a route or method.",
+      "kind": "discovery",
+      "operation_ids": [
+        "submitDeveloperEvidence"
+      ],
+      "query": "Find the exact operation submitDeveloperEvidence (POST /cli/managed/developer-evidence) for Admit revision-linked declarations from the authenticated GitHub user. Cite exactly: operation:submitDeveloperEvidence, schema:DeveloperEvidenceRequest, auth:managedSession",
+      "schema_ids": [
+        "DeveloperEvidenceRequest"
+      ],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "discovery-submitdeveloperevidence"
+    },
+    {
+      "auth_ids": [
+        "managedSession"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/managedSession",
+        "omniwrap://semantic/operation/collectDeveloperAudit"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover non-success response selectors and their declared error payloads.",
+      "kind": "error-recovery",
+      "operation_ids": [
+        "collectDeveloperAudit"
+      ],
+      "query": "Which failure responses and error schemas apply to collectDeveloperAudit? Cite exactly: operation:collectDeveloperAudit, auth:managedSession",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "error-recovery-collectdeveloperaudit"
+    },
+    {
+      "auth_ids": [
+        "managedSession"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/managedSession",
+        "omniwrap://semantic/operation/currentDeveloperIdentity"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover non-success response selectors and their declared error payloads.",
+      "kind": "error-recovery",
+      "operation_ids": [
+        "currentDeveloperIdentity"
+      ],
+      "query": "Which failure responses and error schemas apply to currentDeveloperIdentity? Cite exactly: operation:currentDeveloperIdentity, auth:managedSession",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "error-recovery-currentdeveloperidentity"
+    },
+    {
+      "auth_ids": [
+        "managedSession"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/managedSession",
+        "omniwrap://semantic/operation/submitDeveloperEvidence"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover non-success response selectors and their declared error payloads.",
+      "kind": "error-recovery",
+      "operation_ids": [
+        "submitDeveloperEvidence"
+      ],
+      "query": "Which failure responses and error schemas apply to submitDeveloperEvidence? Cite exactly: operation:submitDeveloperEvidence, auth:managedSession",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "error-recovery-submitdeveloperevidence"
+    },
+    {
+      "auth_ids": [
+        "apiKeyHeader",
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/analyzeContractDrift",
+        "omniwrap://semantic/schema/ReviewRequest"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "analyzeContractDrift"
+      ],
+      "query": "Plan a correct SDK integration for analyzeContractDrift (POST /v1/analysis/contract-drift). Cite exactly: operation:analyzeContractDrift, schema:ReviewRequest, auth:apiKeyHeader, auth:bearerAuth",
+      "schema_ids": [
+        "ReviewRequest"
+      ],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-analyzecontractdrift"
+    },
+    {
+      "auth_ids": [
+        "managedSession"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/managedSession",
+        "omniwrap://semantic/operation/collectDeveloperAudit",
+        "omniwrap://semantic/schema/DeveloperAuditRequest"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "collectDeveloperAudit"
+      ],
+      "query": "Plan a correct SDK integration for collectDeveloperAudit (POST /cli/managed/developer-audit). Cite exactly: operation:collectDeveloperAudit, schema:DeveloperAuditRequest, auth:managedSession",
+      "schema_ids": [
+        "DeveloperAuditRequest"
+      ],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-collectdeveloperaudit"
+    },
+    {
+      "auth_ids": [
+        "apiKeyHeader",
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/createCodingTask"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "createCodingTask"
+      ],
+      "query": "Plan a correct SDK integration for createCodingTask (POST /v1/tasks). Cite exactly: operation:createCodingTask, auth:apiKeyHeader, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-createcodingtask"
+    },
+    {
+      "auth_ids": [
+        "managedSession"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/managedSession",
+        "omniwrap://semantic/operation/currentDeveloperIdentity",
+        "omniwrap://semantic/schema/ManagedDeveloperIdentity",
+        "omniwrap://semantic/schema/ManagedDeveloperIdentityRequest"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "currentDeveloperIdentity"
+      ],
+      "query": "Plan a correct SDK integration for currentDeveloperIdentity (POST /cli/managed/developer-identity). Cite exactly: operation:currentDeveloperIdentity, schema:ManagedDeveloperIdentity, schema:ManagedDeveloperIdentityRequest, auth:managedSession",
+      "schema_ids": [
+        "ManagedDeveloperIdentity",
+        "ManagedDeveloperIdentityRequest"
+      ],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-currentdeveloperidentity"
+    },
+    {
+      "auth_ids": [
+        "apiKeyHeader",
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/evaluateComplianceGate",
+        "omniwrap://semantic/schema/ComplianceGateRequest"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "evaluateComplianceGate"
+      ],
+      "query": "Plan a correct SDK integration for evaluateComplianceGate (POST /v1/compliance/gate). Cite exactly: operation:evaluateComplianceGate, schema:ComplianceGateRequest, auth:apiKeyHeader, auth:bearerAuth",
+      "schema_ids": [
+        "ComplianceGateRequest"
+      ],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-evaluatecompliancegate"
+    },
+    {
+      "auth_ids": [
+        "apiKeyHeader",
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/exportSarif"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "exportSarif"
+      ],
+      "query": "Plan a correct SDK integration for exportSarif (POST /v1/compliance/sarif). Cite exactly: operation:exportSarif, auth:apiKeyHeader, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-exportsarif"
+    },
+    {
+      "auth_ids": [
+        "apiKeyHeader",
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/finalizeMeteringQuota"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "finalizeMeteringQuota"
+      ],
+      "query": "Plan a correct SDK integration for finalizeMeteringQuota (POST /v1/saas/metering/finalize). Cite exactly: operation:finalizeMeteringQuota, auth:apiKeyHeader, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-finalizemeteringquota"
+    },
+    {
+      "auth_ids": [
+        "apiKeyHeader",
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/getAnalyticsRoi"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "getAnalyticsRoi"
+      ],
+      "query": "Plan a correct SDK integration for getAnalyticsRoi (GET /v1/analytics/roi). Cite exactly: operation:getAnalyticsRoi, auth:apiKeyHeader, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-getanalyticsroi"
+    },
+    {
+      "auth_ids": [
+        "apiKeyHeader",
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/getSaasBlueprint"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "getSaasBlueprint"
+      ],
+      "query": "Plan a correct SDK integration for getSaasBlueprint (GET /v1/saas/blueprint). Cite exactly: operation:getSaasBlueprint, auth:apiKeyHeader, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-getsaasblueprint"
+    },
+    {
+      "auth_ids": [
+        "apiKeyHeader",
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/listCodingTasks"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "listCodingTasks"
+      ],
+      "query": "Plan a correct SDK integration for listCodingTasks (GET /v1/tasks). Cite exactly: operation:listCodingTasks, auth:apiKeyHeader, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-listcodingtasks"
+    },
+    {
+      "auth_ids": [
+        "apiKeyHeader",
+        "bearerAuth"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/apiKeyHeader",
+        "omniwrap://semantic/auth/bearerAuth",
+        "omniwrap://semantic/operation/reserveMeteringQuota"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "reserveMeteringQuota"
+      ],
+      "query": "Plan a correct SDK integration for reserveMeteringQuota (POST /v1/saas/metering/reserve). Cite exactly: operation:reserveMeteringQuota, auth:apiKeyHeader, auth:bearerAuth",
+      "schema_ids": [],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-reservemeteringquota"
+    },
+    {
+      "auth_ids": [
+        "managedSession"
+      ],
+      "budgets": {
+        "max_context_bytes": 8192,
+        "max_results": 5,
+        "max_tool_calls": 3
+      },
+      "citation_uris": [
+        "omniwrap://semantic/auth/managedSession",
+        "omniwrap://semantic/operation/submitDeveloperEvidence",
+        "omniwrap://semantic/schema/DeveloperEvidenceRequest"
+      ],
+      "forbidden_actions": [
+        "execute-target-code",
+        "expose-secret",
+        "invent-api-surface",
+        "mutate-remote-state",
+        "network-request"
+      ],
+      "intent": "Recover exact wire parameters, request media, responses, and safety traits.",
+      "kind": "integration",
+      "operation_ids": [
+        "submitDeveloperEvidence"
+      ],
+      "query": "Plan a correct SDK integration for submitDeveloperEvidence (POST /cli/managed/developer-evidence). Cite exactly: operation:submitDeveloperEvidence, schema:DeveloperEvidenceRequest, auth:managedSession",
+      "schema_ids": [
+        "DeveloperEvidenceRequest"
+      ],
+      "success_criteria": [
+        "return the expected entity identifiers",
+        "cite only resolvable OmniWrap resources",
+        "stay within the declared result, context, and tool-call budgets",
+        "perform none of the forbidden actions"
+      ],
+      "task_id": "integration-submitdeveloperevidence"
+    }
+  ]
+}

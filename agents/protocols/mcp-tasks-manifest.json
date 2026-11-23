@@ -1,0 +1,274 @@
+{
+  "lifecycle": {
+    "initialState": "working",
+    "interactiveState": "input_required",
+    "terminalStates": [
+      "completed",
+      "failed",
+      "cancelled",
+      "reconciliation_required"
+    ],
+    "transitions": {
+      "cancelled": [],
+      "completed": [],
+      "failed": [],
+      "input_required": [
+        "cancelled",
+        "completed",
+        "failed",
+        "reconciliation_required",
+        "working"
+      ],
+      "reconciliation_required": [],
+      "working": [
+        "cancelled",
+        "completed",
+        "failed",
+        "input_required",
+        "reconciliation_required",
+        "working"
+      ]
+    }
+  },
+  "operations": [
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "analyzeContractDrift",
+      "path": "/v1/analysis/contract-drift",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "analyzePerfFinOps",
+      "path": "/v1/analysis/perf-finops",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "analyzeSupplyChain",
+      "path": "/v1/supply-chain/analyze",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "buildAutofixBundle",
+      "path": "/v1/reviews/autofix",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "collectDeveloperAudit",
+      "path": "/cli/managed/developer-audit",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "computeRiskRadar",
+      "path": "/v1/reviews/risk-radar",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "createCodingTask",
+      "path": "/v1/tasks",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "createReview",
+      "path": "/v1/reviews",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "currentDeveloperIdentity",
+      "path": "/cli/managed/developer-identity",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "declareDeveloperProjectContext",
+      "path": "/cli/managed/audit-context",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "evaluateComplianceGate",
+      "path": "/v1/compliance/gate",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "exportSarif",
+      "path": "/v1/compliance/sarif",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "finalizeMeteringQuota",
+      "path": "/v1/saas/metering/finalize",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "generateSbom",
+      "path": "/v1/sbom",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "getAnalyticsRoi",
+      "path": "/v1/analytics/roi",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "getCapabilities",
+      "path": "/v1/capabilities",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "getHealth",
+      "path": "/health",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "getSaasBlueprint",
+      "path": "/v1/saas/blueprint",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "getTriageQueue",
+      "path": "/v1/triage",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "issueSurfaceLease",
+      "path": "/v1/saas/surface-lease/issue",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "listCodingTasks",
+      "path": "/v1/tasks",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": true,
+      "method": "GET",
+      "operationId": "listWaitlist",
+      "path": "/v1/waitlist",
+      "readOnly": true,
+      "reconciliationOnInterrupt": false
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "managedAuditSnapshots",
+      "path": "/cli/managed/audit-snapshots",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "planStackedPrSplit",
+      "path": "/v1/analysis/split-pr",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "providerCostEvidence",
+      "path": "/cli/managed/finops",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "registerWaitlist",
+      "path": "/v1/waitlist",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "reserveMeteringQuota",
+      "path": "/v1/saas/metering/reserve",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    },
+    {
+      "idempotent": false,
+      "method": "POST",
+      "operationId": "submitDeveloperEvidence",
+      "path": "/cli/managed/developer-evidence",
+      "readOnly": false,
+      "reconciliationOnInterrupt": true
+    }
+  ],
+  "pollIntervalMs": 1000,
+  "reconciliationPolicy": {
+    "automaticBlindRetry": false,
+    "unconfirmedNonIdempotentWriteState": "reconciliation_required"
+  },
+  "schema": "omniwrap.mcp-tasks/v1",
+  "specificationVersion": "2026-07-28",
+  "states": [
+    "working",
+    "input_required",
+    "completed",
+    "failed",
+    "cancelled",
+    "reconciliation_required"
+  ]
+}

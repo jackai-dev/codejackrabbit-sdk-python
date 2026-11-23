@@ -1,0 +1,3628 @@
+{
+  "archive_identity": "caller supplies the SHA-256 of the exact installed wheel or npm archive",
+  "checkpoint_protocol": "omniwrap.agent-session/v1",
+  "code_map": {
+    "effect_edges": [
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "analyzeContractDrift",
+        "resource": "/v1/analysis/contract-drift"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "analyzePerfFinOps",
+        "resource": "/v1/analysis/perf-finops"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "analyzeSupplyChain",
+        "resource": "/v1/supply-chain/analyze"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "buildAutofixBundle",
+        "resource": "/v1/reviews/autofix"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "collectDeveloperAudit",
+        "resource": "/cli/managed/developer-audit"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "computeRiskRadar",
+        "resource": "/v1/reviews/risk-radar"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "createCodingTask",
+        "resource": "/v1/tasks"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "createReview",
+        "resource": "/v1/reviews"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "currentDeveloperIdentity",
+        "resource": "/cli/managed/developer-identity"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "declareDeveloperProjectContext",
+        "resource": "/cli/managed/audit-context"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "evaluateComplianceGate",
+        "resource": "/v1/compliance/gate"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "exportSarif",
+        "resource": "/v1/compliance/sarif"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "finalizeMeteringQuota",
+        "resource": "/v1/saas/metering/finalize"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "generateSbom",
+        "resource": "/v1/sbom"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "issueSurfaceLease",
+        "resource": "/v1/saas/surface-lease/issue"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "managedAuditSnapshots",
+        "resource": "/cli/managed/audit-snapshots"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "planStackedPrSplit",
+        "resource": "/v1/analysis/split-pr"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "providerCostEvidence",
+        "resource": "/cli/managed/finops"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "registerWaitlist",
+        "resource": "/v1/waitlist"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "reserveMeteringQuota",
+        "resource": "/v1/saas/metering/reserve"
+      },
+      {
+        "compensation": null,
+        "effect": "writes",
+        "from_operation": "submitDeveloperEvidence",
+        "resource": "/cli/managed/developer-evidence"
+      }
+    ],
+    "language": "python",
+    "operation_partition": {
+      "mutating": [
+        "analyzeContractDrift",
+        "analyzePerfFinOps",
+        "analyzeSupplyChain",
+        "buildAutofixBundle",
+        "collectDeveloperAudit",
+        "computeRiskRadar",
+        "createCodingTask",
+        "createReview",
+        "currentDeveloperIdentity",
+        "declareDeveloperProjectContext",
+        "evaluateComplianceGate",
+        "exportSarif",
+        "finalizeMeteringQuota",
+        "generateSbom",
+        "issueSurfaceLease",
+        "managedAuditSnapshots",
+        "planStackedPrSplit",
+        "providerCostEvidence",
+        "registerWaitlist",
+        "reserveMeteringQuota",
+        "submitDeveloperEvidence"
+      ],
+      "read_only": [
+        "getAnalyticsRoi",
+        "getCapabilities",
+        "getHealth",
+        "getSaasBlueprint",
+        "getTriageQueue",
+        "listCodingTasks",
+        "listWaitlist"
+      ]
+    },
+    "schema": "omniwrap.agent-code-map/v1",
+    "source_sha256": "b06781a26c4469e8f12830a04d455957bf620d42b9e1df155e93ee00f293d1c9",
+    "symbols": {
+      "analyzeContractDrift": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "analyze_contract_drift",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.analyze_contract_drift",
+        "writes": [
+          "/v1/analysis/contract-drift"
+        ]
+      },
+      "analyzePerfFinOps": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "analyze_perf_fin_ops",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.analyze_perf_fin_ops",
+        "writes": [
+          "/v1/analysis/perf-finops"
+        ]
+      },
+      "analyzeSupplyChain": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "analyze_supply_chain",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.analyze_supply_chain",
+        "writes": [
+          "/v1/supply-chain/analyze"
+        ]
+      },
+      "buildAutofixBundle": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "build_autofix_bundle",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.build_autofix_bundle",
+        "writes": [
+          "/v1/reviews/autofix"
+        ]
+      },
+      "collectDeveloperAudit": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "collect_developer_audit",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.collect_developer_audit",
+        "writes": [
+          "/cli/managed/developer-audit"
+        ]
+      },
+      "computeRiskRadar": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "compute_risk_radar",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.compute_risk_radar",
+        "writes": [
+          "/v1/reviews/risk-radar"
+        ]
+      },
+      "createCodingTask": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "create_coding_task",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.create_coding_task",
+        "writes": [
+          "/v1/tasks"
+        ]
+      },
+      "createReview": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "create_review",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.create_review",
+        "writes": [
+          "/v1/reviews"
+        ]
+      },
+      "currentDeveloperIdentity": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "current_developer_identity",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.current_developer_identity",
+        "writes": [
+          "/cli/managed/developer-identity"
+        ]
+      },
+      "declareDeveloperProjectContext": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "declare_developer_project_context",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.declare_developer_project_context",
+        "writes": [
+          "/cli/managed/audit-context"
+        ]
+      },
+      "evaluateComplianceGate": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "evaluate_compliance_gate",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.evaluate_compliance_gate",
+        "writes": [
+          "/v1/compliance/gate"
+        ]
+      },
+      "exportSarif": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "export_sarif",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.export_sarif",
+        "writes": [
+          "/v1/compliance/sarif"
+        ]
+      },
+      "finalizeMeteringQuota": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "finalize_metering_quota",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.finalize_metering_quota",
+        "writes": [
+          "/v1/saas/metering/finalize"
+        ]
+      },
+      "generateSbom": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "generate_sbom",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.generate_sbom",
+        "writes": [
+          "/v1/sbom"
+        ]
+      },
+      "getAnalyticsRoi": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "get_analytics_roi",
+        "mutation": false,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [],
+        "symbol": "Client.get_analytics_roi",
+        "writes": []
+      },
+      "getCapabilities": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "get_capabilities",
+        "mutation": false,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [],
+        "symbol": "Client.get_capabilities",
+        "writes": []
+      },
+      "getHealth": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "get_health",
+        "mutation": false,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [],
+        "symbol": "Client.get_health",
+        "writes": []
+      },
+      "getSaasBlueprint": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "get_saas_blueprint",
+        "mutation": false,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [],
+        "symbol": "Client.get_saas_blueprint",
+        "writes": []
+      },
+      "getTriageQueue": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "get_triage_queue",
+        "mutation": false,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [],
+        "symbol": "Client.get_triage_queue",
+        "writes": []
+      },
+      "issueSurfaceLease": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "issue_surface_lease",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.issue_surface_lease",
+        "writes": [
+          "/v1/saas/surface-lease/issue"
+        ]
+      },
+      "listCodingTasks": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "list_coding_tasks",
+        "mutation": false,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [],
+        "symbol": "Client.list_coding_tasks",
+        "writes": []
+      },
+      "listWaitlist": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "list_waitlist",
+        "mutation": false,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [],
+        "symbol": "Client.list_waitlist",
+        "writes": []
+      },
+      "managedAuditSnapshots": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "managed_audit_snapshots",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.managed_audit_snapshots",
+        "writes": [
+          "/cli/managed/audit-snapshots"
+        ]
+      },
+      "planStackedPrSplit": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "plan_stacked_pr_split",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.plan_stacked_pr_split",
+        "writes": [
+          "/v1/analysis/split-pr"
+        ]
+      },
+      "providerCostEvidence": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "provider_cost_evidence",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.provider_cost_evidence",
+        "writes": [
+          "/cli/managed/finops"
+        ]
+      },
+      "registerWaitlist": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "register_waitlist",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.register_waitlist",
+        "writes": [
+          "/v1/waitlist"
+        ]
+      },
+      "reserveMeteringQuota": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "reserve_metering_quota",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.reserve_metering_quota",
+        "writes": [
+          "/v1/saas/metering/reserve"
+        ]
+      },
+      "submitDeveloperEvidence": {
+        "compensation": null,
+        "execution": "buffered-json",
+        "method": "submit_developer_evidence",
+        "mutation": true,
+        "optional_arguments": [],
+        "reads": [],
+        "required_arguments": [
+          "body"
+        ],
+        "symbol": "Client.submit_developer_evidence",
+        "writes": [
+          "/cli/managed/developer-evidence"
+        ]
+      }
+    }
+  },
+  "entrypoint": "agent_session.AgentSession",
+  "execution_boundary": "caller-owned SDK process; trusted cooperative provider and persistence callbacks; no hosted model or arbitrary-code sandbox",
+  "language": "python",
+  "operations": {
+    "analyzeContractDrift": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/ReviewRequest",
+            "required": []
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "analyzeContractDrift"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/v1/analysis/contract-drift"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Detect breaking API symbol removals, signature narrowing, and destructive SQL migrations"
+      },
+      "method": "analyze_contract_drift",
+      "mutation": true
+    },
+    "analyzePerfFinOps": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/ReviewRequest",
+            "required": []
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "analyzePerfFinOps"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/v1/analysis/perf-finops"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Detect N+1 queries in loops, blocking sync I/O, and unbounded LLM FinOps hazards"
+      },
+      "method": "analyze_perf_fin_ops",
+      "mutation": true
+    },
+    "analyzeSupplyChain": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/ReviewRequest",
+            "required": []
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "analyzeSupplyChain"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/v1/supply-chain/analyze"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Detect typosquatting, AI slopsquatting, and license compliance issues"
+      },
+      "method": "analyze_supply_chain",
+      "mutation": true
+    },
+    "buildAutofixBundle": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/ReviewRequest",
+            "required": []
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "buildAutofixBundle"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/v1/reviews/autofix"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Synthesize a conflict-free multi-file unified diff remediation bundle"
+      },
+      "method": "build_autofix_bundle",
+      "mutation": true
+    },
+    "collectDeveloperAudit": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/DeveloperAuditRequest",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "collectDeveloperAudit"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.created"
+            ],
+            "sources": [
+              "response-schema"
+            ]
+          },
+          "value": [
+            {
+              "kind": "resource-exists",
+              "resource": "/cli/managed/developer-audit"
+            }
+          ]
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "managedSession"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.resource-body",
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method",
+              "response-schema"
+            ]
+          },
+          "value": [
+            "/cli/managed/developer-audit"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "Current membership, paid entitlement and repository access are rechecked before returning observations. No scalar developer grade or causal AI speedup is asserted.",
+        "summary": "Collect and save a paid repository work audit"
+      },
+      "method": "collect_developer_audit",
+      "mutation": true
+    },
+    "computeRiskRadar": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/ReviewRequest",
+            "required": []
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "computeRiskRadar"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/v1/reviews/risk-radar"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Compute the 6-axis PR Risk Radar score and grade"
+      },
+      "method": "compute_risk_radar",
+      "mutation": true
+    },
+    "createCodingTask": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "object"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "createCodingTask"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.created"
+            ],
+            "sources": [
+              "response-codes"
+            ]
+          },
+          "value": [
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/tasks"
+            }
+          ]
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/v1/tasks"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Create a planned autonomous coding task"
+      },
+      "method": "create_coding_task",
+      "mutation": true
+    },
+    "createReview": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/ReviewRequest",
+            "required": []
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "createReview"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/v1/reviews"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Run the 5-stage deterministic + LLM code review pipeline"
+      },
+      "method": "create_review",
+      "mutation": true
+    },
+    "currentDeveloperIdentity": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/ManagedDeveloperIdentityRequest",
+            "required": []
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "currentDeveloperIdentity"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.created"
+            ],
+            "sources": [
+              "response-schema"
+            ]
+          },
+          "value": [
+            {
+              "kind": "resource-exists",
+              "resource": "/cli/managed/developer-identity"
+            }
+          ]
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "managedSession"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.resource-body",
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method",
+              "response-schema"
+            ]
+          },
+          "value": [
+            "/cli/managed/developer-identity"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "Repository access and the GitHub identity are freshly verified and rechecked. No provider key or session token is returned; identity does not prove execution or authorship.",
+        "summary": "Read the current verified GitHub identity and authorized source inventory"
+      },
+      "method": "current_developer_identity",
+      "mutation": true
+    },
+    "declareDeveloperProjectContext": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/AuditContextRequest",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "declareDeveloperProjectContext"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.created"
+            ],
+            "sources": [
+              "response-schema"
+            ]
+          },
+          "value": [
+            {
+              "kind": "resource-exists",
+              "resource": "/cli/managed/audit-context"
+            }
+          ]
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "managedSession"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.resource-body",
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method",
+              "response-schema"
+            ]
+          },
+          "value": [
+            "/cli/managed/audit-context"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "Requires current paid access, repository authorization and administrator permission. Joining dates, roles, task families and availability remain organization declarations.",
+        "summary": "Declare or correct dated context for a contributor in a saved report"
+      },
+      "method": "declare_developer_project_context",
+      "mutation": true
+    },
+    "evaluateComplianceGate": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/ComplianceGateRequest",
+            "required": []
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "evaluateComplianceGate"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/v1/compliance/gate"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Evaluate changes against SOC2, PCI-DSS, HIPAA, or Standard compliance gates"
+      },
+      "method": "evaluate_compliance_gate",
+      "mutation": true
+    },
+    "exportSarif": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "object"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "exportSarif"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/v1/compliance/sarif"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Export review findings and fixes to OASIS SARIF 2.1.0 format"
+      },
+      "method": "export_sarif",
+      "mutation": true
+    },
+    "finalizeMeteringQuota": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "object"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "finalizeMeteringQuota"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.documentation"
+            ],
+            "sources": [
+              "documentation"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/v1/saas/metering/finalize"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Phase 2 of 3-phase idempotent metering: commit actual review and LLM usage"
+      },
+      "method": "finalize_metering_quota",
+      "mutation": true
+    },
+    "generateSbom": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/ReviewRequest",
+            "required": []
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "generateSbom"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/v1/sbom"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Generate a CycloneDX 1.5 Software Bill of Materials (SBOM)"
+      },
+      "method": "generate_sbom",
+      "mutation": true
+    },
+    "getAnalyticsRoi": {
+      "arguments": [],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "getAnalyticsRoi"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Compute engineering hours saved and prevented production outage ROI"
+      },
+      "method": "get_analytics_roi",
+      "mutation": false
+    },
+    "getCapabilities": {
+      "arguments": [],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "getCapabilities"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "List all autonomous review, agentic, and compliance capabilities"
+      },
+      "method": "get_capabilities",
+      "mutation": false
+    },
+    "getHealth": {
+      "arguments": [],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "getHealth"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Check server health and active storage backend"
+      },
+      "method": "get_health",
+      "mutation": false
+    },
+    "getSaasBlueprint": {
+      "arguments": [],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "getSaasBlueprint"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Retrieve the autonomous SaaS multi-surface adapter blueprint and pricing matrix"
+      },
+      "method": "get_saas_blueprint",
+      "mutation": false
+    },
+    "getTriageQueue": {
+      "arguments": [],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "getTriageQueue"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "List prioritized cross-repository pull requests (P0-P3)"
+      },
+      "method": "get_triage_queue",
+      "mutation": false
+    },
+    "issueSurfaceLease": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "object"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "issueSurfaceLease"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/v1/saas/surface-lease/issue"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Issue an anti-sharing cryptographic lease for a CLI, IDE, MCP, or SCM surface"
+      },
+      "method": "issue_surface_lease",
+      "mutation": true
+    },
+    "listCodingTasks": {
+      "arguments": [],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "listCodingTasks"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "List autonomous coding tasks"
+      },
+      "method": "list_coding_tasks",
+      "mutation": false
+    },
+    "listWaitlist": {
+      "arguments": [],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "listWaitlist"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.compensation.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.reversible.no-write"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": true
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.safe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": []
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "List invitation waitlist entries (JSON or CSV)"
+      },
+      "method": "list_waitlist",
+      "mutation": false
+    },
+    "managedAuditSnapshots": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/AuditSnapshotsRequest",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "managedAuditSnapshots"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.created"
+            ],
+            "sources": [
+              "response-schema"
+            ]
+          },
+          "value": [
+            {
+              "kind": "resource-exists",
+              "resource": "/cli/managed/audit-snapshots"
+            }
+          ]
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "managedSession"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.resource-body",
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method",
+              "response-schema"
+            ]
+          },
+          "value": [
+            "/cli/managed/audit-snapshots"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "Current paid and repository access are required for every read. Observations were collected at the recorded time; they do not reconstruct past period-end state.",
+        "summary": "List or reopen retained immutable repository audit snapshots"
+      },
+      "method": "managed_audit_snapshots",
+      "mutation": true
+    },
+    "planStackedPrSplit": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/ReviewRequest",
+            "required": []
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "planStackedPrSplit"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/v1/analysis/split-pr"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Decompose a pull request into a topological stack of atomic sub-PRs"
+      },
+      "method": "plan_stacked_pr_split",
+      "mutation": true
+    },
+    "providerCostEvidence": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/FinOpsRequest",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "providerCostEvidence"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.created"
+            ],
+            "sources": [
+              "response-schema"
+            ]
+          },
+          "value": [
+            {
+              "kind": "resource-exists",
+              "resource": "/cli/managed/finops"
+            }
+          ]
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "managedSession"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.resource-body",
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method",
+              "response-schema"
+            ]
+          },
+          "value": [
+            "/cli/managed/finops"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "Fresh administrator permissions and paid access are required. Token estimates, provider-reported costs, operator invoice declarations and independently verified billed cost are separate fields.",
+        "summary": "Read cost evidence or submit administrator rate and invoice declarations"
+      },
+      "method": "provider_cost_evidence",
+      "mutation": true
+    },
+    "registerWaitlist": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/WaitlistRequest",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "registerWaitlist"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.created"
+            ],
+            "sources": [
+              "response-codes"
+            ]
+          },
+          "value": [
+            {
+              "kind": "resource-exists",
+              "resource": "/v1/waitlist"
+            }
+          ]
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/v1/waitlist"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Register an email on the invitation-only waitlist"
+      },
+      "method": "register_waitlist",
+      "mutation": true
+    },
+    "reserveMeteringQuota": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "required": [],
+            "type": "object"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "reserveMeteringQuota"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.documentation"
+            ],
+            "sources": [
+              "documentation"
+            ]
+          },
+          "value": true
+        },
+        "postconditions": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": []
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "apiKeyHeader",
+                "bearerAuth"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": [
+            "/v1/saas/metering/reserve"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "",
+        "summary": "Phase 1 of 3-phase idempotent metering: reserve seat and token quota before execution"
+      },
+      "method": "reserve_metering_quota",
+      "mutation": true
+    },
+    "submitDeveloperEvidence": {
+      "arguments": [
+        {
+          "caller_only": false,
+          "name": "body",
+          "required": true,
+          "schema": {
+            "constraints": {},
+            "enum": [],
+            "nullable": false,
+            "ref": "#/components/schemas/DeveloperEvidenceRequest",
+            "required": [],
+            "unsupported": "argument schema graph needs additional runtime qualification"
+          }
+        }
+      ],
+      "documentation": {
+        "file": "api.md",
+        "operation_id": "submitDeveloperEvidence"
+      },
+      "effects": {
+        "compensation": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.compensation.none-inferred"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": null
+        },
+        "idempotent": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.idempotent.method"
+            ],
+            "sources": [
+              "http-method"
+            ]
+          },
+          "value": false
+        },
+        "postconditions": {
+          "confidence": 0.6,
+          "provenance": {
+            "rules": [
+              "effects.postconditions.created"
+            ],
+            "sources": [
+              "response-schema"
+            ]
+          },
+          "value": [
+            {
+              "kind": "resource-exists",
+              "resource": "/cli/managed/developer-evidence"
+            }
+          ]
+        },
+        "preconditions": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.preconditions.security"
+            ],
+            "sources": [
+              "security"
+            ]
+          },
+          "value": [
+            {
+              "kind": "credential-present",
+              "schemes": [
+                "managedSession"
+              ]
+            }
+          ]
+        },
+        "reversible": {
+          "confidence": 0.3,
+          "provenance": {
+            "rules": [
+              "effects.reversible.unknown"
+            ],
+            "sources": [
+              "default"
+            ]
+          },
+          "value": "unknown"
+        },
+        "writes": {
+          "confidence": 0.9,
+          "provenance": {
+            "rules": [
+              "effects.writes.resource-body",
+              "effects.writes.unsafe-method"
+            ],
+            "sources": [
+              "http-method",
+              "response-schema"
+            ]
+          },
+          "value": [
+            "/cli/managed/developer-evidence"
+          ]
+        }
+      },
+      "execution": "buffered-json",
+      "intent": {
+        "description": "The submitting identity is authenticated independently; execution, activity category and contribution assertions remain caller reports.",
+        "summary": "Admit revision-linked declarations from the authenticated GitHub user"
+      },
+      "method": "submit_developer_evidence",
+      "mutation": true
+    }
+  },
+  "provider_protocol": "omniwrap.agent-provider/v1",
+  "schema": "omniwrap.agent-session-discovery/v1",
+  "source_sha256": "b06781a26c4469e8f12830a04d455957bf620d42b9e1df155e93ee00f293d1c9"
+}

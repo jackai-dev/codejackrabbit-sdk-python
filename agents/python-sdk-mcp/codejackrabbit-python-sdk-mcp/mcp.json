@@ -1,0 +1,21 @@
+{
+  "mcpServers": {
+    "codejackrabbit-python-sdk": {
+      "args": [
+        "-m",
+        "omniwrap_codejackrabbit_mcp.server"
+      ],
+      "command": "python",
+      "env": {
+        "OMNIWRAP_MCP_ALLOWED_OPERATIONS": "",
+        "OMNIWRAP_MCP_AUTH_JSON": "{}",
+        "OMNIWRAP_MCP_BASE_URL": "",
+        "OMNIWRAP_MCP_CREDENTIAL_APIKEYHEADER": "",
+        "OMNIWRAP_MCP_CREDENTIAL_BEARERAUTH": "",
+        "OMNIWRAP_MCP_CREDENTIAL_MANAGEDSESSION": "",
+        "OMNIWRAP_MCP_EXECUTE": "",
+        "OMNIWRAP_MCP_READ_ONLY": "0"
+      }
+    }
+  }
+}
